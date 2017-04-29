@@ -420,7 +420,6 @@
 					var latlon = $(this).closest(".job-parent").find(".job-element[data-type='latlon']").text().split(",")
 					var latitude = latlon[0]
 					var longitude = latlon[1]
-					alert(latlon)
 					$("#map-area").locationpicker({
 						location: {
 							latitude: latitude,
@@ -477,7 +476,9 @@
 
 						post_data[$(job_element[i]).attr("data-type")] = $(job_element[i]).text()
 					}
-					console.log(post_data)
+					kumulos_init.call('updatejobs',post_data,function(res){
+
+					})
 				})
 
 			</script>
