@@ -123,12 +123,14 @@
 							<h5>User Details</h5>
 							<div class="form-group width49">
 								<label>Name :</label>
-								<input type="text" class="form-control" placeholder="">
+								<input type="text" class="form-control" placeholder="" id="search-name">
 							</div>
 							<div class="form-group width49 pull-right">
 								<label>Email :</label>
-								<input type="text" class="form-control" placeholder="">
+								<input type="text" class="form-control" placeholder="" id="search-email">
 							</div>
+							<button class="btn btn-default" id="search-job-button">Search</button>
+
 							<div class="form-group width49">
 								<label>OIS id :</label>
 								<span>12645</span>
@@ -141,7 +143,7 @@
 							<div class="b-header">
 								<h5>Jobs In Progress</h5>
 							</div>
-							<table class="table">
+							<table class="table" data-type="WIP">
 								<thead>
 									<tr>
 										<th>Names <i class="fa fa-sort" aria-hidden="true"></i> </th>
@@ -153,59 +155,13 @@
 										<th>Column <i class="fa fa-sort" aria-hidden="true"></i></th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<td>John Doe</td>
-										<td>
-											<label class="statusData accepted">
-												Accepted
-											</label>
-										</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>John Doe</td>
-										<td>
-											<label class="statusData enroute">
-												Accepted
-											</label>
-										</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>John Doe</td>
-										<td>
-											<label class="statusData onsite">
-												Accepted
-											</label>
-										</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-										<td> 26 April, 2016</td>
-									</tr>
+								<tbody class="job-list">
+									
 								</tbody>
 							</table>
 							<nav class="text-center">
 								<ul class="pagination">
-									<li class="previous disabled"><a href="#"><span aria-hidden="true">←</span> Older</a></li>
-									<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-									<li class="next"><a href="#">Newer <span aria-hidden="true">→</span></a></li>
+									
 								</ul>
 							</nav>
 						</div>
@@ -216,7 +172,7 @@
 							<div class="b-header">
 								<h5>View Completed Jobs</h5>
 							</div>
-							<table class="table">
+							<table class="table" data-type="completed">
 								<thead>
 									<tr>
 										<th>
@@ -234,95 +190,13 @@
 										<th>Completed date &amp; time</th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
+								<tbody class="job-list">
+									
 								</tbody>
 							</table>
 							<nav class="text-center">
 								<ul class="pagination">
-									<li class="previous disabled"><a href="#"><span aria-hidden="true">←</span> Older</a></li>
-									<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-									<li class="next"><a href="#">Newer <span aria-hidden="true">→</span></a></li>
+									
 								</ul>
 							</nav>
 						</div>
@@ -333,7 +207,7 @@
 							<div class="b-header">
 								<h5>View canceled Jobs</h5>
 							</div>
-							<table class="table">
+							<table class="table" data-type="canceled">
 								<thead>
 									<tr>
 										<th>
@@ -351,95 +225,12 @@
 										<th>Completed date &amp; time</th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<label>
-													<input type="checkbox">
-												</label>
-											</div>
-										</td>
-										<td>John Doe</td>
-										<td>Luxury</td>
-										<td>3</td>
-										<td>12 Feb - 15 Feb</td>
-										<td> Bad </td>
-										<td> 26 April, 2016</td>
-									</tr>
+								<tbody class="job-list">
+									
 								</tbody>
 							</table>
 							<nav class="text-center">
 								<ul class="pagination">
-									<li class="previous disabled"><a href="#"><span aria-hidden="true">←</span> Older</a></li>
-									<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">5</a></li>
-									<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-									<li class="next"><a href="#">Newer <span aria-hidden="true">→</span></a></li>
 								</ul>
 							</nav>
 						</div>
@@ -448,8 +239,45 @@
 			</div>
 		</section>
 	</div>
+	<script type="text/template" class="job-template" data-type="completed">
+		<tr>
+			<td>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox">
+					</label>
+				</div>
+			</td>
+			<td><%=name%></td>
+			<td><%=jobid%></td>
+			<td><%=siteId%></td>
+			<td><%=jobtype%></td>
+			<td><%=overallstatus%> </td>
+			<td><%=completeddate%></td>
+		</tr>
+	</script>
+	<script type="text/template" class="job-template" data-type="WIP">
+		<tr>
+			<td><%=name%></td>
+			<td>
+				<label class="statusData accepted">
+				INPROGRESS
+				</label>
+			</td>
+			<td><%=jobid%></td>
+			<td><%=siteId%></td>
+			<td><%=suburb%></td>
+			<td><%=location%> </td>
+			<td><%=completeddate%></td>
+		</tr>
+	</script>
+	<script type="text/template" class="job-template" data-type="canceled">
+	</script>
 	<script src="js/vendor/jquery-3.1.0.min.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>
+	<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="js/api_scripts/user_details.js"></script>
 </body>
 </html>

@@ -280,7 +280,6 @@
 					}
 					var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
 					kumulos_init.call('getInspectionDetails',{inspection_DetailID:43},function(res){
-						console.log(res)
 						if(res){
 							$("#inspection-id").text(res[0].inspection_DetailID)
 							$("#contractor-name").text(res[0].contractor)

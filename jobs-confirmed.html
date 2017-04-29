@@ -201,8 +201,6 @@
 					<%}}%>
 					<a href="#"><%=item.label%></a>
 				</li>
-
-
 				<%})%>
 				<li class="next-element"><a href="#" aria-label="Next" data-action="next"><span aria-hidden="true">»</span></a></li>
 				<li class="last-element" data-action="last"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
@@ -259,84 +257,80 @@
 
 				}
 			})
-		})
-	</script>
-	<script type="text/javascript">
-		$(document).on("click",".pagination-element",function(){
-			// $('.pagination').jqPagination({current_page:$(this).attr("data-index")})
-			$(".pagination-element").removeClass("active")
-			$(this).addClass("active")
-			var post_data = {
-				status:"completed",
-				numberofrec:2,
-				offset:parseInt($(this).attr("data-index"))*2,
-				username:"ALL",
-				email:"ALL",
-				userid:0
-			}
-			var template = _.template($('#job-template').html());
-			var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
-			kumulos_init.call('viewalljobsdetails',post_data,function(res){
-				var job_array = res[0]['data']
-				var job_array_length = Object.keys(res[0]['data']).length
-				if(job_array_length){
-				console.log(res)
-				$("#job-list").html("")
-				
-				
-				var template = _.template($('#job-template').html());
-				for(i=0;i<job_array.length;i++){
-					var element = job_array[i]
-					var date = new Date(parseInt(element.completedDate));
-					element['completeddate'] = date.toString("MMM dd")
-					$("#job-list").append(template(element));
+				})
+			</script>
+			<script type="text/javascript">
+				$(document).on("click",".pagination-element",function(){
+					$(".pagination-element").removeClass("active")
+					$(this).addClass("active")
+					var post_data = {
+						status:"completed",
+						numberofrec:2,
+						offset:parseInt($(this).attr("data-index"))*2,
+						username:"ALL",
+						email:"ALL",
+						userid:0
+					}
+					var template = _.template($('#job-template').html());
+					var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+					kumulos_init.call('viewalljobsdetails',post_data,function(res){
+						var job_array = res[0]['data']
+						var job_array_length = Object.keys(res[0]['data']).length
+						if(job_array_length){
+							console.log(res)
+							$("#job-list").html("")
 
-				}
-			}
-			})
-		})
-		$(document).on("click",".pagination .last-element",function(e){
-			e.preventDefault();
-			$('.pagination > .pagination-element').addClass("hide");
-			$('.pagination > .pagination-element').slice(-5).removeClass("hide");
-			$('.pagination > .pagination-element').not("hide").last().click()
-		})
-		$(document).on("click",".pagination .first-element",function(e){
-			e.preventDefault();
-			$('.pagination > .pagination-element').addClass("hide");
-			$('.pagination > .pagination-element').slice(0,5).removeClass("hide");
-			$('.pagination > .pagination-element').not("hide").first().click()
-		})
-		$(document).on("click",".pagination .previous-element",function(e){
-			e.preventDefault();
-			var current_element = $(".pagination-element.active")
-			if(current_element.prev().hasClass("pagination-element")){
-				$(".pagination-element").not("hide").last("hide");
-				current_element.prev().removeClass("hide").addClass("active").click()
-			}
-		})
-		$(document).on("click",".pagination .next-element",function(e){
-			e.preventDefault();
-			var current_element = $(".pagination-element.active")
-			if(current_element.next().hasClass("pagination-element")){
-				$(".pagination-element").not("hide").first("hide");
-				current_element.next().removeClass("hide").addClass("active").click()
-			}
-		})
 
-		$("#select-all-jobs").on("change",function(e){
-			if($(this).is(':checked')){
-				$("#job-list").find(".checkbox input").prop("checked",true)
-			}else{
-				$("#job-list").find(".checkbox input").prop("checked",false)
-			}
+							var template = _.template($('#job-template').html());
+							for(i=0;i<job_array.length;i++){
+								var element = job_array[i]
+								var date = new Date(parseInt(element.completedDate));
+								element['completeddate'] = date.toString("MMM dd")
+								$("#job-list").append(template(element));
 
-		})
-		$("#job-list").on("change",".checkbox input",function(){
-			$("#select-all-jobs").prop("checked",false)
-		})
+							}
+						}
+					})
+				})
+				$(document).on("click",".pagination .last-element",function(e){
+					e.preventDefault();
+					$('.pagination > .pagination-element').addClass("hide");
+					$('.pagination > .pagination-element').slice(-5).removeClass("hide");
+					$('.pagination > .pagination-element').not("hide").last().click()
+				})
+				$(document).on("click",".pagination .first-element",function(e){
+					e.preventDefault();
+					$('.pagination > .pagination-element').addClass("hide");
+					$('.pagination > .pagination-element').slice(0,5).removeClass("hide");
+					$('.pagination > .pagination-element').not("hide").first().click()
+				})
+				$(document).on("click",".pagination .previous-element",function(e){
+					e.preventDefault();
+					var current_element = $(".pagination-element.active")
+					if(current_element.prev().hasClass("pagination-element")){
+						$(".pagination-element").not("hide").last("hide");
+						current_element.prev().removeClass("hide").addClass("active").click()
+					}
+				})
+				$(document).on("click",".pagination .next-element",function(e){
+					e.preventDefault();
+					var current_element = $(".pagination-element.active")
+					if(current_element.next().hasClass("pagination-element")){
+						$(".pagination-element").not("hide").first("hide");
+						current_element.next().removeClass("hide").addClass("active").click()
+					}
+				})
 
-		
-	</script>
-</body>
-</html>
+				$("#select-all-jobs").on("change",function(e){
+					if($(this).is(':checked')){
+						$("#job-list").find(".checkbox input").prop("checked",true)
+					}else{
+						$("#job-list").find(".checkbox input").prop("checked",false)
+					}
+				})
+				$("#job-list").on("change",".checkbox input",function(){
+					$("#select-all-jobs").prop("checked",false)
+				})
+			</script>
+		</body>
+		</html>
