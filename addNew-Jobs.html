@@ -1,0 +1,486 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Landing</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="images/logo.png">
+	
+	<!-- CSS STYLES -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="css/notification.css">
+	<link rel="stylesheet" type="text/css" href="css/inspection.css">
+	<link rel="stylesheet" type="text/css" href="css/button.css">
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen"
+	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+</head>
+<body>
+	<div class="overflow-scroll">
+		<!-- Background overlay -->
+		<div class="black-opc hide"></div>
+
+		<!-- Fixed header -->
+		<section class="navbar navbar-default navbar-fixed-top" id="header">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<label class="hamburger-menu">
+						<img src="images/hamburger.png">
+					</label>
+					<a class="navbar-brand" href="#">
+						<span class="enterprise-logo">
+							<img src="images/logo.png">
+						</span>
+						<!--<span class="enterprise-name">
+							Outdoor inspection Services Group
+							<span class="enterprise-tagline">
+							Outdoor inspection Services Group
+							</span>
+						</span>-->
+					</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="dropdown">
+								<div class="profile-dropdown" data-toggle="dropdown">
+									<div class="profile-desc">
+										<h5>Bala Subramani</h5>
+									</div>
+									<img src="images/dropdown.png" class="dropdown-img">
+								</div>
+								<div class="notification-popup header-notification profile-popup dropdown-menu">
+									<div class="notification-area">
+										<div class="n-desc">
+											<div class="a-profile">
+												<a href="">Sign Out</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<!-- main wrapper -->
+		<section id="main-wrapper">
+			<!-- sidebar -->
+			<div id="sidebar">
+				<div class="sidebar-list text-left">
+					<ul class="list-unstyled">
+						<li class="active">
+							<a href="index.html">
+								<img src="images/sidebar/inspection.png" alt="home">
+								<label>inspection</label>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<img src="images/sidebar/jobs.png" alt="chat">
+								<label>jobs</label>
+							</a>
+						</li>
+						<li>
+							<a href="contact.html">
+								<img src="images/sidebar/maps.png" alt="contact">
+								<label>Maps View</label>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/sidebar/user.png" alt="profile">
+								<label>Users</label>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- main wrapper -->
+			<div class="container-fluid" id="wrapper-container">
+				<ol class="breadcrumb">
+					<li><a href="#">Inspection</a></li>
+					<li class="active">Add Jobs</li>
+				</ol>
+				<div class="row addnewList" id="inspection-data">
+					<div class="newJobs-list">
+						<h5>Add a new jobs</h5>
+						<ul class="list-unstyled">
+							<li>
+								<label>
+									Inspection Id:
+								</label>
+								<span id="inspection-id"></span>
+							</li>
+							<li>
+								<label>
+									Campaign : 
+								</label>
+								<span id="campaign"></span>
+							</li>
+							<li>
+								<label>
+									Condition Check : 
+								</label>
+								<span id="condition-check"></span>
+							</li>
+							<li>
+								<label>
+									Client: 
+								</label>
+								<span id="client-name"></span>
+							</li>
+							<li>
+								<label>
+									Contractor : 
+								</label>
+								<span id="contractor-name"></span>
+							</li>
+							<li>
+								<label>
+									Proximity Check: 
+								</label>
+								<span id="proximity-check"></span>
+							</li>
+							<li>
+								<label>
+									Date Of Inspection: 
+								</label>
+								<span id="date-of-inspection"></span>
+							</li>
+							<li>
+								<label>
+									Format : 
+								</label>
+								<span id="inspection-format"></span>
+							</li>
+							<li>
+								<label>
+									Share of Voice Check:
+								</label>
+								<span id="share-of-voice"></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-12" id="confirm-section">
+					<div class="booking-details">
+						<div class="b-header">
+							<h5>Job Details</h5>
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Site Id</th>
+									<th>Panel Id</th>
+									<th>Location</th>
+									<th>Suburb</th>
+									<th>GeoCoded Location</th>
+									<th>Location on MAP</th>
+									<th>End Date</th>
+								</tr>
+							</thead>
+							<tbody id="job-list">
+								
+							</tbody>
+						</table>
+						<nav class="text-center">
+							<ul class="pagination">
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="modal" id="map-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div id="map-area" style="width: 500px; height: 400px;"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/template" id="job-template">
+		<tr class="job-parent" data-id="<%=jobID%>">
+			<td class="job-element" contenteditable="true" data-type="siteid"><%=siteId%>dd</td>
+			<td class="job-element" contenteditable="true" data-type="panalid"><%=panalId%></td>
+			<td class="job-element" contenteditable="true" data-type="location"><%=location%></td>
+			<td class="job-element" contenteditable="true" data-type="suburb"><%=suburb%></td>
+			<td class="job-element" data-type="latlon"><%=latitude%>,<%=longitude%></td>
+			<td class="view-map">
+				<i class="fa fa-location-arrow" aria-hidden="true"></i>
+			</td>
+			<td>
+				<div class="input-append date form_datetime" id="date-time-picker<%=i%>">
+					<input size="16" type="text" value="<%=endDate%>">" readonly>
+					<span class="add-on"><i class="icon-th"></i></span>
+				</div>
+			</td>
+		</tr>
+	</script>
+	<script type="text/template" id="pagination-template">
+		<li class="first-element" data-action="first"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+		<li class="previous-element"><a href="#" aria-label="Previous" data-action="previous"><span aria-hidden="true">«</span></a></li>
+		<input class="hide" type="text" readonly="readonly" data-max-page="<%=items.length%>"/>
+		<%_.each(items, function(item) {%>
+		<%if(item.index ==0){%>
+		<li class="pagination-element active" data-index="<%=item.index%>">
+			<%}else{%>
+			<%if(item.is_hidden){%>
+			<li class="pagination-element hide" data-index="<%=item.index%>">
+				<%}else{%>
+				<li class="pagination-element" data-index="<%=item.index%>">
+					<%}}%>
+					<a href="#"><%=item.label%></a>
+				</li>
+
+
+				<%})%>
+				<li class="next-element"><a href="#" aria-label="Next" data-action="next"><span aria-hidden="true">»</span></a></li>
+				<li class="last-element" data-action="last"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+			</script>
+			<script src="js/vendor/jquery-3.1.0.min.js"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>
+			<script src="js/scripts.js"></script>
+			<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
+			<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+			<script src="js/vendor/location.picker.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+			<script src="js/vendor/bootstrap.datepicker.js"></script>
+			<script src="js/locationpicker.jquery.min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					var numberofrecs =5
+					var max_pagination_elements = 6;
+					var post_data ={
+						campaign:40,
+						offset:0,
+						numberofrec:numberofrecs
+					}
+					var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+					kumulos_init.call('getInspectionDetails',{inspection_DetailID:43},function(res){
+						console.log(res)
+						if(res){
+							$("#inspection-id").text(res[0].inspection_DetailID)
+							$("#contractor-name").text(res[0].contractor)
+							$("#condition_check").text(res[0].conditionCheck)
+							$("#contractor").text(res[0].contractor)
+							$("#client-name").text(res[0].client)
+							$("#condition-check").text(res[0].conditionCheck)
+							$("#date-of-inspection").text(res[0].dateofInspection)
+							$("#proximity-check").text(res[0].proximityCheck)
+							$("#inspection-format").text(res[0].format)
+							$("#share-of-voice").text(res[0].shareofVoiceCheck)
+							$("#campaign").text(res[0].campaign)
+						}
+
+					})
+
+					var template = _.template($('#job-template').html());
+					kumulos_init.call('getjoblistDetails',post_data,function(res){
+						console.log(res)
+						$("#job-list").html("")
+						var job_array = res[0]['data']
+						var job_array_length = Object.keys(res[0]['data']).length
+						for(i=0;i<job_array_length;i++){
+							newdate =moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
+							var item = {
+								jobID:job_array[i].jobID,
+								siteId:job_array[i].siteId,
+								panalId:job_array[i].panalId,
+								location:job_array[i].location,
+								suburb:job_array[i].suburb,
+								endDate:newdate,
+								latitude:job_array[i].latitude,
+								longitude:job_array[i].longitude,
+								index:i
+							}
+							$("#job-list").append(template(item));
+							$("#date-time-picker"+i).datetimepicker({format: 'dd-mm-yyyy HH:ii P',showMeridian: true,autoclose: true}).on('changeDate', function(ev){
+								$(ev.currentTarget).closest(".job-parent").find(".job-element[data-type='location']").blur();
+
+							});
+
+						}
+						var values = numberofrecs
+						var pagination_limit = res[0]['totalrecs']/numberofrecs;
+						var no_elements = parseInt(pagination_limit);
+						if(pagination_limit.toString().indexOf(".")>0 && pagination_limit>1){
+							no_elements +=1 ;
+						}
+
+						if(no_elements>1){
+							var element_array = [];
+							for(i=0;i<no_elements;i++){
+								var is_hidden = max_pagination_elements > i ? false : true;
+								element_array.push({label:i+1,index:i,is_hidden:is_hidden});
+							}
+							var pagination_template = _.template($('#pagination-template').html());
+							console.log(pagination_template({items:element_array}))
+							$(".pagination").html(pagination_template({items:element_array}));
+
+
+						}
+
+					})
+				})
+				$(document).on("click",".pagination .last-element",function(e){
+					e.preventDefault();
+					$('.pagination > .pagination-element').addClass("hide");
+					$('.pagination > .pagination-element').slice(-5).removeClass("hide");
+					$('.pagination > .pagination-element').not("hide").last().click()
+
+				})
+				$(document).on("click",".pagination .first-element",function(e){
+					e.preventDefault();
+					$('.pagination > .pagination-element').addClass("hide");
+					$('.pagination > .pagination-element').slice(0,5).removeClass("hide");
+					$('.pagination > .pagination-element').not("hide").first().click()
+				})
+				$(document).on("click",".pagination .previous-element",function(e){
+					e.preventDefault();
+					var current_element = $(".pagination-element.active")
+					if(current_element.prev().hasClass("pagination-element")){
+						$(".pagination-element").not("hide").last("hide");
+						current_element.prev().removeClass("hide").addClass("active").click()
+					}
+				})
+				$(document).on("click",".pagination .next-element",function(e){
+					e.preventDefault();
+					var current_element = $(".pagination-element.active")
+					if(current_element.next().hasClass("pagination-element")){
+						$(".pagination-element").not("hide").first("hide");
+						current_element.next().removeClass("hide").addClass("active").click()
+					}
+				})
+
+				$(document).on("click",".pagination-element",function(){
+					var numberofrecs = 5;
+					$(".pagination-element").removeClass("active")
+					$(this).addClass("active")
+					var post_data = {
+						campaign:40,
+						numberofrec:numberofrecs,
+						offset:parseInt($(this).attr("data-index"))*2
+					}
+					var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+					kumulos_init.call('getjoblistDetails',post_data,function(res){
+						console.log(res)
+						$("#job-list").html("")
+						var template = _.template($('#job-template').html());
+						var job_array = res[0]['data']
+						var job_array_length = Object.keys(res[0]['data']).length
+						for(i=0;i<job_array_length;i++){
+							var element = job_array[i]
+							newdate =moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
+							var item = {
+								siteId:job_array[i].siteId,
+								panalId:job_array[i].panalId,
+								location:job_array[i].location,
+								suburb:job_array[i].suburb,
+								jobID:job_array[i].jobID,
+								endDate:newdate,
+								latitude:job_array[i].latitude,
+								longitude:job_array[i].longitude,
+								index:i
+
+
+							}
+							$("#job-list").append(template(item));
+							// $('.date-picker').datetimepicker();
+							$("#date-time-picker"+i).datetimepicker({format: 'dd-mm-yyyy HH:ii P',showMeridian: true,autoclose: true}).on('changeDate', function(ev){
+								$(ev.currentTarget).closest(".job-parent").find(".job-element[data-type='location']").blur();
+								
+							});
+						}
+					})
+				})
+				$(document).on("click",".view-map",function(){
+					var latlon = $(this).closest(".job-parent").find(".job-element[data-type='latlon']").text().split(",")
+					var latitude = latlon[0]
+					var longitude = latlon[1]
+					alert(latlon)
+					$("#map-area").locationpicker({
+						location: {
+							latitude: latitude,
+							longitude:longitude
+						},
+						locationName: "",
+						radius: 500,
+						zoom: 15,
+						mapTypeId: google.maps.MapTypeId.ROADMAP,
+						styles: [],
+						mapOptions: {},
+						scrollwheel: true,
+						inputBinding: {
+							latitudeInput: null,
+							longitudeInput: null,
+							radiusInput: null,
+							locationNameInput: null
+						},
+						enableAutocomplete: false,
+						enableAutocompleteBlur: false,
+						autocompleteOptions: null,
+						addressFormat: 'postal_code',
+						enableReverseGeocode: true,
+						draggable: true,
+						onchanged: function(currentLocation, radius, isMarkerDropped) {
+							$(".job-parent.selected").find(".job-element[data-type='latlon']").text(currentLocation['latitude']+","+currentLocation['longitude'])
+							$("#map-modal").modal('hide');
+							$(".job-parent.selected").find(".job-element[data-type='latlon']").blur()
+						},
+						onlocationnotfound: function(locationName) {},
+						oninitialized: function (component) {},
+						markerIcon: undefined,
+						markerDraggable: true,
+						markerVisible : true
+					})
+					$("#map-modal").modal('show');
+
+				})
+				$(document).on("click",".job-parent",function(){
+					if($(".job-parent.selected").attr("data-id") == $(this).attr("data-id")){
+						return
+					}else{
+						$(".job-parent.selected").removeClass("selected")
+						$(this).addClass("selected")
+					}
+				})
+				$(document).on("blur",".job-element",function(){
+					var job_element = $(this).closest(".job-parent").find(".job-element")
+					var post_data = {
+						jobID:$(this).closest(".job-parent").attr("data-id"),
+						endDate:$(this).closest(".job-parent").find(".form_datetime input").val()
+					}
+					for(i=0;i<job_element.length;i++){
+
+						post_data[$(job_element[i]).attr("data-type")] = $(job_element[i]).text()
+					}
+					console.log(post_data)
+				})
+
+			</script>
+			<!-- <script type="js/api_scripts/addNew-jobs.js"></script> -->
+		</body>
+		</html>

@@ -1,0 +1,251 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Landing</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="images/logo.png">
+	
+	<!-- CSS STYLES -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="css/notification.css">
+	<link rel="stylesheet" type="text/css" href="css/inspection.css">
+	<link rel="stylesheet" type="text/css" href="css/button.css">
+	<link rel="stylesheet" type="text/css" href="css/signin.css">
+	<link rel="stylesheet" type="text/css" href="css/jobs.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+</head>
+<body>
+	<div class="overflow-scroll">
+		<!-- Background overlay -->
+		<div class="black-opc hide"></div>
+
+		<!-- Fixed header -->
+		<section class="navbar navbar-default navbar-fixed-top" id="header">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<label class="hamburger-menu">
+						<img src="images/hamburger.png">
+					</label>
+					<a class="navbar-brand" href="#">
+						<span class="enterprise-logo">
+							<img src="images/logo.png">
+						</span>
+						<!--<span class="enterprise-name">
+							Outdoor inspection Services Group
+							<span class="enterprise-tagline">
+							Outdoor inspection Services Group
+							</span>
+						</span>-->
+					</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="dropdown">
+								<div class="profile-dropdown" data-toggle="dropdown">
+									<div class="profile-desc">
+										<h5>Bala Subramani</h5>
+									</div>
+									<img src="images/dropdown.png" class="dropdown-img">
+								</div>
+								<div class="notification-popup header-notification profile-popup dropdown-menu">
+									<div class="notification-area">
+										<div class="n-desc">
+											<div class="a-profile">
+												<a href="">Sign Out</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<!-- main wrapper -->
+		<section id="main-wrapper">
+			<!-- sidebar -->
+			<div id="sidebar">
+				<div class="sidebar-list text-left">
+					<ul class="list-unstyled">
+						<li class="active">
+							<a href="index.html">
+								<img src="images/sidebar/inspection.png" alt="home">
+								<label>inspection</label>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<img src="images/sidebar/jobs.png" alt="chat">
+								<label>jobs</label>
+							</a>
+						</li>
+						<li>
+							<a href="contact.html">
+								<img src="images/sidebar/maps.png" alt="contact">
+								<label>Maps View</label>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/sidebar/user.png" alt="profile">
+								<label>Users</label>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- main wrapper -->
+			<div class="container-fluid user_job_list" id="wrapper-container">
+				 <ol class="breadcrumb">
+                    <li><a href="#">Inspection</a></li>
+                    <li class="active">Add Jobs</li>
+                </ol>
+				<div class="col-md-12" id="confirm-section">
+					<div class="booking-details">
+						<div class="dd-data">
+							<div class="view-data">
+								<h5>View Jobs of John</h5>
+								<!-- <div class="form-group width80 viewby">
+									<label>View By :</label>
+									<select class="form-control">
+										<option value="">
+											20
+										</option>
+										<option value="">
+											40
+										</option>
+									</select>
+								</div> -->
+							</div>
+							<div class="input-group pull-right">
+								<input type="text" class="form-control" placeholder="Search by name / OISA Data">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</button>
+								</span>
+							</div>
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">
+											</label>
+										</div>
+									</th>
+									<th>INSPECTION ID</th>
+									<th>JOB ID</th>
+									<th>SIN</th>
+									<th>JOB TYPE</th>
+									<th>Completed date & time <i class="fa fa-sort" aria-hidden="true"></i></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">
+											</label>
+										</div>
+									</td>
+									<td>John Doe</td>
+									<td>Q12</td>
+									<td>3</td>
+									<td> Static </td>
+									<td> 26 April, 2016</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">
+											</label>
+										</div>
+									</td>
+									<td>John Doe</td>
+									<td>Q12</td>
+									<td>3</td>
+									<td> Static </td>
+									<td> 26 April, 2016</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">
+											</label>
+										</div>
+									</td>
+									<td>John Doe</td>
+									<td>Q12</td>
+									<td>3</td>
+									<td> Static </td>
+									<td> 26 April, 2016</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">
+											</label>
+										</div>
+									</td>
+									<td>John Doe</td>
+									<td>Q12</td>
+									<td>3</td>
+									<td> Static </td>
+									<td> 26 April, 2016</td>
+								</tr>
+							</tbody>
+						</table>
+						<nav class="text-center">
+							<ul class="pagination">
+								<li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+								<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+								<li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+							</ul>
+						</nav>
+						<div class="download-data">
+							<label>
+								DOWNLOAD REPORT 
+								<i class="fa fa-download" aria-hidden="true"></i>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script src="js/vendor/jquery-3.1.0.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>

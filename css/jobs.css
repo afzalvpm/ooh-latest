@@ -1,0 +1,82 @@
+.viewList {
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 0px;
+}
+
+.view-data h5 {
+    padding: 15px;
+    font-family: 'LatoBold';
+    font-size: 14px;
+}
+
+.v-data {
+    padding: 0px;
+}
+
+.userData {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    border: 1px solid #EEF2F5;
+    margin-top: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.u-left,
+.u-right {
+    display: inline-block;
+}
+
+.u-right h5 {
+    font-family: "LatoBold";
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.u-right label,
+.u-right span {
+    font-family: "LatoRegular";
+    font-size: 14px;
+}
+.view-data {
+    border-bottom: 1px solid #ddd;
+}
+
+.u-left {
+    margin-top: 21px;
+}
+
+.u-right {
+    width: 80%;
+    vertical-align: top;
+    padding-left: 10px;
+}
+.table .checkbox {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    top: 3px;
+}
+.statusData{
+    font-family: "LatoRegular";
+    font-size: 12px;
+    border-radius: 60px;
+    padding: 5px 15px;;
+    color: #fff;
+}
+.accepted{
+    background-color: #f0ad4e;
+}
+.enroute{
+    background-color: #5bc0de;
+}
+.onsite{
+    background-color: #d9534f;
+}
+/*responsive css*/
+@media screen and (max-width: 991px) {
+    .inspection-data {
+        margin-top: 15px;
+    }
+}

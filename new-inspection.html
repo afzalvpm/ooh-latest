@@ -1,0 +1,347 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Landing</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="images/logo.png">
+	
+	<!-- CSS STYLES -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="css/notification.css">
+	<link rel="stylesheet" type="text/css" href="css/inspection.css">
+	<link rel="stylesheet" type="text/css" href="css/button.css">
+</head>
+<body>
+	<div class="overflow-scroll">
+		<!-- Background overlay -->
+		<div class="black-opc hide"></div>
+
+		<!-- Fixed header -->
+		<section class="navbar navbar-default navbar-fixed-top" id="header">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<label class="hamburger-menu">
+						<img src="images/hamburger.png">
+					</label>
+					<a class="navbar-brand" href="#">
+						<span class="enterprise-logo">
+							<img src="images/logo.png">
+						</span>
+						<!--<span class="enterprise-name">
+							Outdoor inspection Services Group
+							<span class="enterprise-tagline">
+							Outdoor inspection Services Group
+							</span>
+						</span>-->
+					</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="dropdown">
+								<div class="profile-dropdown" data-toggle="dropdown">
+									<div class="profile-desc">
+										<h5>Bala Subramani</h5>
+									</div>
+									<img src="images/dropdown.png" class="dropdown-img">
+								</div>
+								<div class="notification-popup header-notification profile-popup dropdown-menu">
+									<div class="notification-area">
+										<div class="n-desc">
+											<div class="a-profile">
+												<a href="">Sign Out</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<!-- main wrapper -->
+		<section id="main-wrapper">
+			<!-- sidebar -->
+			<div id="sidebar">
+				<div class="sidebar-list text-left">
+					<ul class="list-unstyled">
+						<li class="active">
+							<a href="index.html">
+								<img src="images/sidebar/inspection.png" alt="home">
+								<label>inspection</label>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<img src="images/sidebar/jobs.png" alt="chat">
+								<label>jobs</label>
+							</a>
+						</li>
+						<li>
+							<a href="contact.html">
+								<img src="images/sidebar/maps.png" alt="contact">
+								<label>Maps View</label>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/sidebar/user.png" alt="profile">
+								<label>Users</label>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- main wrapper -->
+			<div class="container-fluid" id="wrapper-container">
+                <!--<ol class="breadcrumb">
+                    <li><a href="#">Inspection</a></li>
+                    <li class="active">Add Inspection</li>
+                </ol>-->
+                <div class="row" id="inspection-data">
+                	<div class="Form-section">
+                		<form id="new-inception">
+                			<h5>Inspection Form</h5>
+                			<div class="form-group width49 pull-right">
+                				<label for="client">Client</label>
+                				<input type="text" class="form-control" placeholder="Enter Client" name="client" id="client">
+                			</div>
+                			<div class="form-group width49">
+                				<label for="inception_date">Date of Inspection</label>
+                				<input type="date" class="form-control" placeholder="" name="inception_date" id="inception_date">
+                			</div>
+                			<div class="form-group width49 pull-right">
+                				<label>Type</label>
+                				<select class="form-control" name="inception_type" id="inception_type">
+                					<option value="personal">
+                						Personal
+                					</option>
+                					<option value="enterprise">
+                						Enterprise
+                					</option>
+                				</select>
+                			</div>
+                			<h5>Campaign</h5>
+                			<div class="form-group width49">
+                				<label>Campaign</label>
+                				<input type="text" class="form-control" placeholder="" name="campaign" id="campaign">
+                			</div>
+                			<div class="form-group width49 pull-right">
+                				<label>Contractor</label>
+                				<input type="text" class="form-control" placeholder="" name="contractor" id="contractor">
+                			</div>
+                			<div class="form-group width49">
+                				<label>Format</label>
+                				<input type="text" class="form-control" placeholder="" name="format" id="format">
+                			</div>
+                			<h5>Inspection Brief</h5>
+                			<div class="form-group width49">
+                				<label>Condition Check</label>
+                				<input type="text" class="form-control" placeholder="" name="condition" id="condition">
+                			</div>
+                			<div class="form-group width49 pull-right">
+                				<label>Proximity Check</label>
+                				<select class="form-control" name="proximity_check" id="proximity_check">
+                					<option value="personal">
+                						Personal
+                					</option>
+                					<option value="enterprise">
+                						Enterprise
+                					</option>
+                				</select>
+                			</div>
+                			<div class="form-group width49">
+                				<label>Share of voice check</label>
+                				<input type="text" class="form-control" placeholder="" name="voice_check" id="voice_check">
+                			</div>
+                			<div class="form-group width49 pull-right">
+                				<label>Zip Code</label>
+                				<input type="text" class="form-control" placeholder="" name="zipcode" id="zipcode">
+                			</div>
+                			<div class="form-group width49 pull-right">
+                				<label>Job List</label>
+                				<input type="file" class="form-control" placeholder="" name="job_file" id="job_file" onchange="handleFiles(this.files)">
+                			</div>
+
+                			<div class="pull-right btn-save">
+                				<button class="btn btn-default connect-btn btnAlign" id="upload-job-file">Upload Job List</button>
+                				<button class="btn btn-default connect-btn btnAlign" type="submit">Add Jobs</button>
+                			</div>
+                		</form>
+                	</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="js/vendor/jquery-3.1.0.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery.validate.min.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
+
+
+    <script type="text/javascript">
+    	var csv_data = []
+    	function handleFiles(files) {
+    		if (window.FileReader) {
+    			getAsText(files[0]);
+    		} else {
+    			alert('FileReader are not supported in this browser.');
+    		}
+    	}
+
+    	function getAsText(fileToRead) {
+    		var reader = new FileReader();
+    		reader.readAsText(fileToRead);
+    		reader.onload = loadHandler;
+    		reader.onerror = errorHandler;
+    	}
+
+    	function loadHandler(event) {
+    		var csv = event.target.result;
+    		processData(csv);
+    	}
+
+    	function processData(csv) {
+    		csv_data = []
+    		var allTextLines = csv.split(/\r\n|\n/);
+    		var lines = [];
+    		for (var i=0; i<allTextLines.length; i++) {
+    			var data = allTextLines[i].split(';');
+    			var tarr = [];
+    			for (var j=0; j<data.length; j++) {
+    				// tarr.push(data[j]);
+    				if(data[j].split(",").length == 8)
+    					csv_data.push(data[j])
+    			}
+    			// if(tarr.length>1){
+    			// 	csv_data.push(tarr)
+    			// 	lines.push(tarr);
+
+    			// }
+    		}
+    		$('#new-inception').validate();
+    	}
+
+    	function errorHandler(evt) {
+    		if(evt.target.error.name == "NotReadableError") {
+    			alert("Canno't read file !");
+    		}
+    	}
+    	$('#new-inception').validate({
+    		rules: {
+    			client:{
+    				required:true,
+    			},
+    			inception_type:{
+    				required:true
+    			},
+    			campaign:{
+    				required:true
+    			},
+    			contractor:{
+    				required:true
+    			},
+    			format:{
+    				required:true
+    			},
+    			condition:{
+    				required:true
+    			},
+    			proximity_check:{
+    				required:true
+    			},
+    			voice_check:{
+    				required:true
+    			},
+    			zipcode:{
+    				required:true
+    			},
+    			job_file:{
+    				required:true,
+    				extension: "csv",
+    				is_csv_format_correct:true
+    			}
+
+    		},
+
+    		messages: {
+    			client:"Please Enter client name",
+    			inception_type:"Please Choose Inspection Type",
+    			campaign:"Please Enter Campaign",
+    			contractor:"Please Enter contractor",
+    			format:"Please Enter format",
+    			proximity_check:"Please Choose proximity check",
+    			voice_check:"Please Enter Share of voice check",
+    			condition:"Please Enter condition check",
+    			contractor:"Please Enter contractor",
+    			zipcode:"Please Enter zipcode",
+    			job_file:"Please pick a csv file"
+    		},
+
+
+    		submitHandler: function(form) {
+    			var job_list = csv_data
+    			job_list.shift()
+    			var post_data = {
+    				client:$(form).find("#client").val(),
+    				dateofInspection:$(form).find("#inception_date").val(),
+    				type:$(form).find("#inception_type").val(),
+    				campaign:$(form).find("#campaign").val(),
+    				contractor:$(form).find("#contractor").val(),
+    				format:$(form).find("#format").val(),
+    				conditionCheck:$(form).find("#condition").val(),
+    				proximityCheck:$(form).find("#proximity_check").val(),
+    				shareofVoiceCheck:$(form).find("#voice_check").val(),
+    				zipCode:$(form).find("#zipcode").val(),
+    				job_list:job_list
+
+
+    			}
+    			var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+    			kumulos_init.call('insertInspectiondata',post_data,function(res){
+
+    			})
+    			console.log(post_data)
+    		}
+    	});
+    	$('#new-inception').submit(function(e){
+    		e.preventDefault();
+    		// csv_data.splice(0,1)
+
+
+    	})
+    	$("#upload-job-file").on("click",function(e){
+    		e.preventDefault();
+    		$("#job_file").click()
+    	})
+    	$.validator.addMethod('is_csv_format_correct', function (value, element, param) {
+    		var files = element.files
+    		handleFiles(files)
+    		if(csv_data.length){
+    			return true
+    		}
+    		else
+    			return false;
+    //Your Validation Here
+}, '');
+</script>
+</body>
+</html>

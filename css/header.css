@@ -1,0 +1,162 @@
+#header {
+	background-color: #3B5BB2;
+	height: 70px;
+	/*padding-left: 70px;*/
+	margin-bottom: 0px;
+}
+#header .hamburger-menu {
+	display: none;
+}
+/*Logo section*/
+#header .navbar-brand span{
+	display: inline-block;
+}
+#header .navbar-brand span>span{
+	display: block;
+}
+#header .navbar-brand .enterprise-logo{
+    width: 65px;
+    height: 38px;
+    padding: 0px;
+    border-radius: 3px;
+    vertical-align: top;
+    margin-top: 2px;
+}
+#header .navbar-brand .enterprise-logo img{
+	width: 100%;
+}
+#header .navbar-brand .enterprise-name{
+	width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 14px;
+	color: #fff;
+	font-family: 'LatoBold';
+	vertical-align: top;
+	margin-left: 5px;
+	display: inline-block;
+}
+#header .navbar-brand .enterprise-name .enterprise-tagline{
+	font-size: 14px;
+	color: #fff;
+	font-family: 'LatoRegular';
+	width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#header .navbar-right li {
+	padding: 10px 5px;
+	border-right: 1px solid #f6f6f6;
+	position: relative;
+}
+#header .navbar-right li:first-child{
+	border: 0;
+}
+#header .navbar-right li:nth-child(2){
+	border-left: 1px solid #f6f6f6;
+}
+#header .navbar-right li.active{
+	background-color: #f6f6f6;
+}
+#header .navbar-right li a,
+#header .navbar-right li.active a{
+	background-color: transparent !important;
+}
+#header .navbar-right li .profile-dropdown {
+	padding: 15px 15px;
+	cursor: pointer;
+}
+#header .navbar-right li .profile-dropdown .profile-img {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	vertical-align: top;
+}
+#header .navbar-right li .profile-dropdown .profile-img img {
+	width: 100%;
+}
+#header .navbar-right li .profile-dropdown .profile-desc {
+	padding-left: 5px;
+	display: inline-block;
+}
+#header .navbar-right li .profile-dropdown .profile-desc h5 {
+	font-family: "LatoBold";
+	font-size: 14px;
+	color: #fff;
+	margin: 0px;
+	margin-bottom: 0px;
+}
+#header .navbar-right li .profile-dropdown .profile-desc label {
+	font-family: "LatoRegular";
+	line-height: 14px;
+	font-size: 13px;
+	color: #404040;
+	margin-bottom: 0px;
+}
+#header .navbar-right li .profile-dropdown .dropdown-img {
+    position: relative;
+    top: -2px;
+    left: 3px;
+}
+#header .navbar-right li .form-group .input-group {
+	width: 440px;
+}
+#header .notify-no{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background-color: #46AFEB;
+	font-size: 11px;
+	font-family: "LatoBold";
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	top: 8px;
+    right: 10px;
+}
+/*responsive css*/
+@media screen and (min-width: 1101px) and (max-width: 1200px) {
+	#header .navbar-right li .form-group .input-group {
+		width: 330px;
+	}
+}
+@media screen and (min-width: 991px) and (max-width: 1100px) {
+	#header .navbar-right li .form-group .input-group {
+		width: 260px;
+	}
+}
+@media screen and (min-width: 1025px) and (max-width: 1080px){
+	#header .navbar-brand .enterprise-name,
+	#header .navbar-brand .enterprise-name .enterprise-tagline{
+		width: 130px;
+	}
+}
+@media screen and (max-width: 1024px) {
+	#header .navbar-brand .enterprise-name,
+	#header .navbar-brand .enterprise-name .enterprise-tagline{
+		width: 110px;
+	}
+}
+@media screen and (max-width: 991px) {
+	#header {
+		padding-left: 40px;
+		padding-right: 10px;
+		z-index: 9999;
+	}
+	#header .hamburger-menu {
+		display: block;
+		position: absolute;
+		left: 10px;
+		top: 24px;
+	}
+	.navbar-header{
+		width: 100%;
+	}
+	#header #navbar, #header .navbar-toggle, #header .navbar-right {
+		display: none;
+	}
+}

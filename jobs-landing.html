@@ -1,0 +1,319 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Landing</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="images/logo.png">
+	
+	<!-- CSS STYLES -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="css/notification.css">
+	<link rel="stylesheet" type="text/css" href="css/inspection.css">
+	<link rel="stylesheet" type="text/css" href="css/jobs.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+</head>
+<body>
+	<div class="overflow-scroll">
+		<!-- Background overlay -->
+		<div class="black-opc hide"></div>
+
+		<!-- Fixed header -->
+		<section class="navbar navbar-default navbar-fixed-top" id="header">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<label class="hamburger-menu">
+						<img src="images/hamburger.png">
+					</label>
+					<a class="navbar-brand" href="#">
+						<span class="enterprise-logo">
+							<img src="images/logo.png">
+						</span>
+						<!--<span class="enterprise-name">
+							Outdoor inspection Services Group
+							<span class="enterprise-tagline">
+							Outdoor inspection Services Group
+							</span>
+						</span>-->
+					</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="dropdown">
+								<div class="profile-dropdown" data-toggle="dropdown">
+									<div class="profile-desc">
+										<h5>Bala Subramani</h5>
+									</div>
+									<img src="images/dropdown.png" class="dropdown-img">
+								</div>
+								<div class="notification-popup header-notification profile-popup dropdown-menu">
+									<div class="notification-area">
+										<div class="n-desc">
+											<div class="a-profile">
+												<a href="">Sign Out</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<!-- main wrapper -->
+		<section id="main-wrapper">
+			<!-- sidebar -->
+			<div id="sidebar">
+				<div class="sidebar-list text-left">
+					<ul class="list-unstyled">
+						<li class="active">
+							<a href="index.html">
+								<img src="images/sidebar/inspection.png" alt="home">
+								<label>inspection</label>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<img src="images/sidebar/jobs.png" alt="chat">
+								<label>jobs</label>
+							</a>
+						</li>
+						<li>
+							<a href="contact.html">
+								<img src="images/sidebar/maps.png" alt="contact">
+								<label>Maps View</label>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/sidebar/user.png" alt="profile">
+								<label>Users</label>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- main wrapper -->
+			<div class="container-fluid" id="wrapper-container">
+				<div class="col-md-12 inspection-list jobs-tab">
+					<div class="col-md-4 mpad0 text-center">
+						<div class="inspection-data active">
+							<img src="images/addnew.png" alt="">
+							<label>View Jobs by User</label>
+						</div>
+					</div>
+					<div class="col-md-4 mpad0 text-center">
+						<div class="inspection-data">
+							<img src="images/progress.png" alt="">
+							<label>View Completed Jobs</label>
+						</div>
+					</div>
+					<div class="col-md-4 mpad0 text-center">
+						<div class="inspection-data">
+							<img src="images/job3.png" alt="">
+							<label>Jobs in Progress</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 mpad0">
+					<div class="col-md-12 viewList">
+						<div class="dd-data">
+							<div class="view-data">
+								<h5>View Jobs by User</h5>
+							</div>
+							<div class="input-group pull-right">
+								<input type="text" class="form-control" id="search-area" placeholder="Search by name / OISA Data">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button" id="search-job-by-name">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-12 v-data" id="job-list">	
+						</div>
+						<nav class="text-center">
+							<ul class="pagination">
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script type="text/template" id="job-template">
+		<div class="col-md-4">
+			<div class="userData">
+				<div class="u-left">
+					<img src="images/user.png" alt="user">
+				</div>
+				<div class="u-right">
+					<h5><%=name%></h5>
+					<!-- <label><%=userDataID%></label> -->
+					<span><%=emailId%></span>
+					<label>Completed Jobs : <%=count%></label>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script type="text/template" id="pagination-template">
+		<li class="first-element" data-action="first"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+		<li class="previous-element"><a href="#" aria-label="Previous" data-action="previous"><span aria-hidden="true">«</span></a></li>
+		<input class="hide" type="text" readonly="readonly" data-max-page="<%=items.length%>"/>
+		<%_.each(items, function(item) {%>
+		<%if(item.index ==0){%>
+		<li class="pagination-element active" data-index="<%=item.index%>">
+			<%}else{%>
+			<%if(item.is_hidden){%>
+			<li class="pagination-element hide" data-index="<%=item.index%>">
+				<%}else{%>
+				<li class="pagination-element" data-index="<%=item.index%>">
+					<%}}%>
+					<a href="#"><%=item.label%></a>
+				</li>
+
+
+				<%})%>
+				<li class="next-element"><a href="#" aria-label="Next" data-action="next"><span aria-hidden="true">»</span></a></li>
+				<li class="last-element" data-action="last"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+			</script>
+			<script src="js/vendor/jquery-3.1.0.min.js"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>
+			<script src="js/scripts.js"></script>
+			<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					var numberofrecs = 9;
+					var max_pagination_elements = 6;
+					var post_data = {
+						numberofrec:numberofrecs,
+						offset:0
+					}
+					var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+					kumulos_init.call('viewjobsbyuser',post_data,function(res){
+						$("#job-list").html("")
+						var template = _.template($('#job-template').html());
+						var job_array = res[0]['data']
+						var job_array_length = Object.keys(res[0]['data']).length
+						for(i=0;i<job_array_length;i++){
+							$("#job-list").append(template(job_array[i]));
+						}
+						var values = numberofrecs
+						var pagination_limit = res[0]['totalrecs']/numberofrecs;
+						var no_elements = parseInt(pagination_limit);
+						if(pagination_limit.toString().indexOf(".") && pagination_limit>1){
+							no_elements +=1 ;
+						}
+						if(no_elements>1){
+							var element_array = [];
+							var template = _.template($('#pagination-template').html());
+							for(i=0;i<no_elements;i++){
+								var is_hidden = max_pagination_elements > i ? false : true;
+								element_array.push({label:i+1,index:i,is_hidden:is_hidden});
+							}
+							$(".pagination").html(template({items:element_array}));
+
+
+						}
+					})
+
+				})
+
+
+				$(document).on("click",".pagination-element",function(){
+					var numberofrecs = 9;
+					$(".pagination-element").removeClass("active")
+					$(this).addClass("active")
+					var post_data = {
+						numberofrec:numberofrecs,
+						offset:parseInt($(this).attr("data-index"))*2
+					}
+					var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+					kumulos_init.call('viewjobsbyuser',post_data,function(res){
+						$("#job-list").html("")
+						var template = _.template($('#job-template').html());
+						var job_array = res[0]['data']
+						var job_array_length = Object.keys(res[0]['data']).length
+						for(i=0;i<job_array_length;i++){
+							var element = job_array[i]
+							$("#job-list").append(template(element));
+						}
+					})
+				})
+				$("#search-job-by-name").click(function(){
+					var numberofrecs = 9;
+					var max_pagination_elements = 6;
+					var post_data = {
+						numberofrec:numberofrecs,
+						offset:0
+					}
+					var search_content = $("#search-area").val()
+					if(search_content.length){
+						var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+						kumulos_init.call('viewjobsbynameorid',{nameorid:search_content},function(res){
+							debugger
+							$("#job-list").html("")
+							var template = _.template($('#job-template').html());
+							var job_array = res[0]
+							var job_array_length = Object.keys(res[0]).length
+							for(i=0;i<job_array_length;i++){
+								$("#job-list").append(template(job_array[i]));
+							}
+							$(".pagination").addClass("hide")
+						})
+					}
+				})
+
+				$(document).on("click",".pagination .last-element",function(e){
+					e.preventDefault();
+					$('.pagination > .pagination-element').addClass("hide");
+					$('.pagination > .pagination-element').slice(-5).removeClass("hide");
+					$('.pagination > .pagination-element').not("hide").last().click()
+
+				})
+				$(document).on("click",".pagination .first-element",function(e){
+					e.preventDefault();
+					$('.pagination > .pagination-element').addClass("hide");
+					$('.pagination > .pagination-element').slice(0,5).removeClass("hide");
+					$('.pagination > .pagination-element').not("hide").first().click()
+				})
+				$(document).on("click",".pagination .previous-element",function(e){
+					e.preventDefault();
+					var current_element = $(".pagination-element.active")
+					if(current_element.prev().hasClass("pagination-element")){
+						$(".pagination-element").not("hide").last("hide");
+						current_element.prev().removeClass("hide").addClass("active").click()
+					}
+				})
+				$(document).on("click",".pagination .next-element",function(e){
+					e.preventDefault();
+					var current_element = $(".pagination-element.active")
+					if(current_element.next().hasClass("pagination-element")){
+						$(".pagination-element").not("hide").first("hide");
+						current_element.next().removeClass("hide").addClass("active").click()
+					}
+				})
+			</script>
+		</script>
+
+	</body>
+	</html>

@@ -1,0 +1,174 @@
+.inspection-list{
+  padding: 0px;
+}
+.inspection-data {
+  box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.06);
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  border: 1px solid #EEF2F5;
+  padding: 30px 0px;
+  cursor: pointer;
+}
+.inspection-data:hover {
+  box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.15);
+}
+.inspection-data label{
+  font-family: "LatoRegular";
+  font-size: 18px;
+  padding-left: 10px;
+}
+.graph-data{
+  box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.06);
+  background-color: #FFFFFF;
+  margin-top: 20px; 
+  padding-bottom: 15px;
+}
+.graph-data h5{
+  font-family: "LatoBold";
+  font-size: 18px;
+  padding: 20px 15px;
+}
+.c3 text{
+ font-family: "LatoRegular";
+ font-size: 12px;
+}
+/*inspection-form*/
+#inspection-data{
+  background-color: #fff;
+  padding: 30px 15px;
+  margin: 0px 15px;
+}
+.Form-section{
+  padding: 20px 0px;
+  padding-bottom: 0px;
+}
+.Form-section h5{
+  font-family: "LatoBold";
+  font-size: 20px;
+  margin: 15px 0px;
+  margin-top: 0px;
+}
+.Form-section .form-group label{
+  font-family: "LatoRegular";
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.Form-section .form-control{
+  box-shadow: none;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  height: 45px;
+  margin-bottom: 20px;
+}
+.Form-section .form-control:focus{
+  border: 1px solid #3B5BB2;
+}
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: 1px solid #999;
+	background-color: #fff;
+	border-radius: 2px;
+	font-family: "LatoRegular";
+	background-position: right 50%;
+	background-repeat: no-repeat;
+	background-image: url("../images/d-dropdown.png") !important;
+	padding: 6px 1.5em 6px 12px;
+	outline: 0;
+	margin-bottom: 10px;
+}
+.jobs-tab .inspection-data.active{
+  border-top: 2px solid #3b5bb2;
+  background-color: rgba(246, 246, 246, 0.61);
+}
+/*add new jobs*/
+.newJobs-list h5{
+  font-family: "LatoBold";
+  font-size: 18px;
+}
+.newJobs-list ul{
+  margin-top: 25px;
+}
+.newJobs-list ul li{
+  display: inline-block;
+  width: 33%;
+  margin-bottom: 20px;
+}
+.newJobs-list ul li label{
+  font-family: "LatoRegular";
+  font-size: 14px; 
+}
+.newJobs-list ul li span{
+  font-family: "LatoBold";
+  font-size: 14px;
+}
+.addnewList{
+  padding: 15px !important;
+}
+/*add new job table*/
+#confirm-section {
+  margin: 20px 0px;
+}
+.booking-details {
+  box-shadow: 0 2px 4px 0 rgba(204,204,204,0.5);
+  background-color: #FFFFFF;
+}
+.b-header {
+  padding: 20px 20px;
+  padding-bottom: 25px;
+}
+.b-header h5 {
+  font-size: 16px;
+  font-family: 'LatoBold';
+  color: #4D535E;
+  display: inline-block;
+}
+#confirm-section table tr th {
+  font-size: 14px;
+  font-family: 'LatoRegular';
+  color: #7F90A4;
+  border-bottom: 1px solid rgba(127, 144, 164, 0.12);
+  padding: 15px 20px;
+}
+#confirm-section table tbody tr td.name {
+  color: #545860;
+  font-size: 14px;
+  font-family: 'LatoBold';
+}
+#confirm-section table tbody tr td {
+  color: #8595A8;
+  padding: 15px 20px;
+  vertical-align: middle;
+}
+/*responsive css*/
+@media screen and (max-width: 991px) {
+  #inspection-data {
+    margin-bottom: 20px;
+  }
+  .inspection-form {
+    background-color: #fff;
+    padding: 0px 15px;
+    margin: 0px;
+    padding-bottom: 20px;
+  }
+  #wrapper-container .breadcrumb {
+    left: 0px;
+  }
+  /*add new jobs*/
+  .newJobs-list ul li{
+    width: 100%;
+  }
+  #inspection-data {
+    background-color: #fff;
+    padding: 30px 15px;
+    margin: 0px 0px;
+  }
+  .dd-data .input-group {
+    width: 300px;
+    position: static;
+    right: initial;
+    top: 0px;
+    float: none !important;
+    margin: 20px 20px;
+  }
+}

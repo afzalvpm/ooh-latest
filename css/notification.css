@@ -1,0 +1,308 @@
+.notification-popup {
+	width: 200px;
+	background-color: #fff;
+	box-shadow: 0 4px 5px 0 rgba(178,178,178,0.5);
+	border: 0 !important;
+	padding: 0 !important;
+	top: 120% !important;
+}
+.notification-popup:before{
+	content: '';
+	position: absolute;
+	top: -5px;
+	z-index: -1;
+	right: 20px;
+	box-shadow: 1px 2px 1px 3px rgba(178,178,178,0.1);
+	transform: rotate(45deg);
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+}
+.notification-popup .n-heading{
+	padding: 15px 0px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+	background: #fff;
+}
+.notification-popup .n-heading h5 {
+	font-family: "LatoBold";
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
+	margin: 0px;
+	display: inline-block;
+}
+.notification-popup .n-heading span{
+	display:inline-block;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background-color: #46AFEB;
+	font-size: 11px;
+	font-family: "LatoRegular";
+	color: #fff;
+	text-align: center;
+	padding-top: 1px;
+}
+.notification-area .n-desc{
+	position: relative;
+	padding:15px;
+	cursor: pointer;
+}
+.notification-area .n-desc.unread:before{
+	content: '';
+	width: 7px;
+	height: 7px;
+	background: #46AFEB;
+	display: inline-block;
+	border-radius: 50%;
+	position: absolute;
+	left: 2px;
+	top: 30px;
+}
+.notification-area .n-desc.unread, .notification-area .n-desc:hover{
+	background-color: #f6f6f6;
+}
+.notification-area .n-desc .profile-img{
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	display: inline-block;
+}
+.notification-area .n-desc .profile-img img{
+	width: 100%;
+}
+.notification-area .n-desc .a-profile{
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 10px;
+	width: 85%;
+}
+.notification-area .n-desc .a-profile h1{
+	opacity: 0.87;
+	font-size: 15px;
+	line-height: 18px;
+	color: #000000;
+	font-family: "LatoBold";
+	margin: 0px;
+	margin-bottom: 2px;
+}
+.notification-area .n-desc .a-profile p{
+	font-family: "LatoRegular";
+	font-size: 14px;
+	line-height: 16px;
+	color: #9b9b9b;
+	line-height: 22px;
+	margin-bottom: 0px;
+}
+.notification-area .n-desc .a-profile label{
+	color: #889CA8;
+	opacity: 0.8;
+}
+.notification-area .n-desc .a-time{
+	position: absolute;
+	right: 20px;
+	top: 12px;
+}
+.notification-area .n-desc .a-time label{
+	font-family: "LatoRegular";
+	color: #000;
+	opacity: 0.5;
+	margin-bottom: 0px;
+}
+
+/*Profile Popup */
+.notification-area .n-desc .profile-img.large{
+	width: 90px;
+	height: 90px;
+}
+.notification-area .n-desc .profile-img.medium{
+	width: 50px;
+	height: 50px;
+}
+.profile-popup .notification-area .n-desc .a-profile{
+	width: 65%;
+}
+.profile-popup .notification-area .n-desc:first-child{
+	border: 0;
+	background: #fff;
+}
+.profile-popup .notification-area .n-desc .a-profile label{
+	font-weight: normal;
+	font-size: 14px;
+	margin-bottom: 0;
+	line-height: 25px
+}
+.profile-popup .notification-area .n-desc .a-profile span{
+	display: block;
+	font-family: "LatoRegular";
+	font-size: 14px;
+	line-height: 16px;
+	color: #9b9b9b;
+	line-height: 25px;
+	margin-bottom: 0px;
+}
+.profile-popup .notification-area .n-desc .a-profile li{
+	border: 0 !important;
+}
+.profile-popup .notification-area .n-desc .a-profile li a{
+	color: #46AFEB;
+	font-size: 14px;
+	font-family: 'LatoBold';
+	box-shadow: none !important;
+	border: 0;
+	outline: 0;
+}
+.profile-popup .notification-area .n-desc.active {
+	background-color: #fff9f4;
+	border: solid #ddd;
+	border-width: 1px 0 1px 1px;
+}
+.profile-popup .notification-area .n-desc.active .profile-img{
+	border: 1.5px solid #E1822F;
+	padding: 2px;
+}
+
+.notification-area .n-desc .connect-btn,
+.notification-area .n-desc .reject-btn{
+	margin-top: 8px;
+	width: 65px;
+	border-radius: 0;
+	padding: 5px 0;
+}
+.n-viewall{
+	padding: 15px 0px;
+	border-top: 1px solid rgba(0, 0, 0, 0.11);
+}
+.n-viewall label,
+.n-viewall label a{
+	font-family: "LatoRegular";
+	font-size: 14px;
+	margin: 0px;
+	color: #46AFEB;
+}
+.notification-popup .back-option{
+	position: absolute;
+	left: 0px;
+	display: none;
+	padding: 16px 20px;
+	top: 0px;
+}
+
+/*Account settings*/
+.profile-footer{
+	border-top: 1px solid #ddd;
+	height: 60px;
+	padding: 10px 20px;
+}
+.profile-footer ul li{
+	border: 0 !important;
+}
+.profile-footer ul li a{
+	color: #46AFEB;
+	font-size: 14px;
+	font-family: 'LatoBold';
+	box-shadow: none !important;
+	border: 0;
+	outline: 0;
+}
+/*responsive css*/
+@media screen and (min-width: 992px){
+	.profile-mobile{
+		display: none;
+	}
+}
+@media screen and (max-width: 991px) {
+	.notification-popup {
+		width: 100%;
+		top: 0px !important;
+		z-index: 9999;
+		height: 100%;
+		overflow: auto;
+		position: inherit;
+	}
+	.n-viewall {
+		position: fixed;
+		width: 100%;
+		bottom: 0px;
+		background-color: #fff;
+	}
+	.notification-popup:before {
+		display: none;
+	}
+	.notification-area{
+		height: 100vh;
+		overflow: auto;
+		padding-bottom: 60px;
+	}
+	.notification-popup .back-option{
+		display: block;
+	}
+	.notification-area .n-desc .a-profile {
+		width: 80%;
+	}
+	.notification-area .n-desc .a-profile h1{
+		font-size: 13px;
+	}
+	.notification-area .n-desc .a-profile p{
+		font-size: 12px;
+		line-height: 15px;
+	}
+	.notification-area .n-desc .a-time.a-btn{
+		position: relative;
+		margin-left: 70px;
+		top: 5px;
+	}
+	.notification-area .n-desc .connect-btn, .notification-area .n-desc .reject-btn {
+		width: 90px;
+		padding: 2px 0;
+		margin-top: 0;
+	}
+	.notification-area .n-desc .a-time label{
+		font-size: 12px;
+	}
+
+	/*Profile */
+	.profile-mobile{
+		display: inline-block;
+		float: right;
+		margin-top: 20px;
+		position: relative;
+	}
+	.profile-mobile .profile-img{
+		width: 35px;
+		height: 35px;
+	}
+	.profile-mobile .profile-img img{
+		width: 100%;
+	}
+	.notification-popup.profile-popup{
+		right: 0;
+	}
+	.notification-area .n-desc .profile-img.large {
+		width: 60px;
+		height: 60px;
+	}
+	.notification-area .n-desc .profile-img.medium {
+		width: 40px;
+		height: 40px;
+	}
+	.m-signout{
+		color: #46AFEB;
+		font-size: 15px;
+		text-transform: uppercase;
+	}
+	.m-signout label, .m-signout label a{
+		display: block;
+	}
+	.dropdown-img{
+		position: absolute;
+		right: -15px;
+		top: 15px;
+	}
+	.profile-dropdown{
+		margin-right: 30px;
+	}
+	.profile-dropdown .menu-option{
+		top: 25px;
+	}
+}

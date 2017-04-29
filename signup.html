@@ -1,0 +1,221 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Signup</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="images/logo.png">
+	
+	<!-- User styles -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/signin.css">
+	
+</head>
+<body>
+	<div class="signin-container container-fluid pad0">
+		<div class="col-md-5 pad0">
+			<div class="s-banner">
+				<img src="images/logo.png" class="logo-signin">
+				<div class="signin-banner">
+					<img src="images/banner-signin.png">
+				</div>
+				<div class="s-bannerDesc">
+					<h5>OUT OF HOME (OOH) SITE AUDITS</h5>
+					<p> 
+						To replace paper based audits with android and iOS apps that automatically feeds audit results into the database
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-7 pad0">
+			<div class="s-signup">
+				<div class="m-Logo">
+					<img src="images/logo.png">
+				</div>
+				<div class="s-getstarted pull-right">
+					<label>Have an account?</label>
+					<button class="btn btn-default register-btn">SIGN IN</button>
+				</div>
+				<div class="s-form">
+					<div class="s-welcome">
+						<h5>Get started with OIS</h5>
+						<label>Enter your sign up details below:</label>
+					</div>
+					<form id="signup-form">
+						<div class="form-group success">
+							<label for="firstname-field">User Name</label>
+							<input type="text" class="form-control" placeholder="Enter first name" name="username" id="username-field">
+							<!-- <label class="error-label">Invalid User Name</label> -->
+							<!-- <img src="images/error-icon.png" class="validation-msg error-icon"> -->
+							<!-- <img src="images/success-icon.png" class="validation-msg success-icon"> -->
+						</div>
+						<div class="form-group error">
+							<label for="email-field">Email Id</label>
+							<input type="email" class="form-control" placeholder="Enter your email address" name="email" id="email-field">
+							<!-- <label class="error-label">Invalid Email Id</label> -->
+							<!-- <img src="images/error-icon.png" class="validation-msg error-icon"> -->
+							<!-- <img src="images/success-icon.png" class="validation-msg success-icon"> -->
+						</div>
+						<div class="form-group weak">
+							<label for="password-field">Password</label>
+							<input type="password" class="form-control" placeholder="Enter your password" name="password" id="password-field">
+							<!-- <label class="pwd-input pwd-weak">
+								<label>Password strength: <span>Weak</span></label>
+							</label>
+							<label class="pwd-input pwd-strength">
+								<label>Password strength: <span>Good</span></label>
+							</label> -->
+						</div>
+						<div class="form-group error good">
+							<label for="password1-field">Confirm Password</label>
+							<input type="password" class="form-control" placeholder="Enter your password again" name="password1" id="password1-field">
+							<!-- <label class="pwd-input pwd-weak">
+								<label>Password strength: <span>Weak</span></label>
+							</label>
+							<label class="pwd-input pwd-strength">
+								<label>Password strength: <span>Good</span></label>
+							</label> -->
+							<!-- <label class="error-label">Password Mismatched</label> -->
+							<!-- <img src="images/error-icon.png" class="validation-msg error-icon"> -->
+							<!-- <img src="images/success-icon.png" class="validation-msg success-icon"> -->
+						</div>
+						<div class="checkbox error">
+							<label>
+								<input type="checkbox" name="terms" id="signup-terms">I Agree with the<a href=""> Terms and Conditions.</a>
+							</label>
+							<label class="error-label">
+								Kindly accept the Terms and Conditions.
+							</label>
+						</div>
+						<div class="error-display"></div>
+						<button class="btn btn-default signin-btn">SIGN UP</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
+	<script src="js/vendor/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/vendor/jquery.validate.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+			<!-- <script type="text/javascript">
+				var pagename = 'signin';
+			</script> -->
+			<script src="js/scripts.js"></script>
+			<script type="text/javascript">
+				var pagename = 'signin';
+		// $("#phone").intlTelInput();
+	</script>
+	<script type="text/javascript">
+		$('#signup-form').validate({
+			rules: {
+				email:{
+					required:true,
+					email:true,
+					is_email_available:true
+				},
+				username:{
+					required:true
+				},
+				password:{
+					required:true,
+					minlength: 6,
+					maxlength: 16
+				},
+				password1:{
+					required:true,
+					minlength: 6,
+					maxlength: 16,
+					equalTo: "#password-field"
+				},
+				terms:{
+					required:true
+				}
+			},
+
+			messages: {
+				email:{
+					required:"Please Enter email id",
+					email:"Incorrect Email id",
+					is_email_available:"Email id is already taken"
+				},
+				username:"Please Enter firstname",
+				password:{
+					required:"Please Enter Password",
+					minlength: "Please Enter minimum 6 characters or digits",
+					maxlength: "Max length Exceed"
+				},
+				password1:{
+					required:"Please Enter Password",
+					minlength: "Please Enter minimum 6 characters or digits",
+					maxlength: "Max length Exceed",
+					equalTo:"Password Mismatched"
+				},
+				terms:{
+					required:""
+				}
+			},
+
+
+			submitHandler: function(form) {
+				$("#signup-form .error-display").text("")
+				var post_data = {
+					email:$(form).find("#email-field").val(),
+					password:$(form).find("#password-field").val(),
+					username:$(form).find("#username-field").val(),
+
+				}
+				var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+				kumulos_init.call('insertadmindetails',post_data,function(res){
+					if(res){
+						$("#signup-form .error-display").text("Account Has been created successfully").addClass("success")
+						$("#email-field").addClass("is-used")
+					}else{
+						$("#signup-form .error-display").text("Please Check email id or Password").addClass("failure")
+						
+					}
+					setTimeout(function(){
+						$("#signup-form .error-display").text("").removeClass("success").removeClass("failure")
+					},4000)
+				});
+			}
+		});
+		$('#signup-form').submit(function(e){
+			e.preventDefault();
+		})
+
+		$.validator.addMethod('is_email_available', function (value, element, param) {
+			if($(element).hasClass("is-used"))
+				return false;
+			else
+				return true;
+    //Your Validation Here
+}, '');
+		$("#email-field").keyup(function(){
+			if($(this).hasClass("is-used"))
+				$(this).removeClass("is-used")
+			else
+				return
+		})
+		$("#email-field").blur(function(){
+			var email = $(this).val()
+			var that = this
+			var k= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+			k.call('adminemailavailability',{email:email},function(res){
+				if(res.length == 0)
+					$(that).removeClass("is-used");
+				else
+					$(that).addClass("is-used");
+				$(that).valid();
+
+			})
+		})
+		
+	</script>
+</body>
+</html>

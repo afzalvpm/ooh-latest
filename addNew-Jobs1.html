@@ -1,0 +1,246 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Landing</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="images/logo.png">
+	
+	<!-- CSS STYLES -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="css/notification.css">
+	<link rel="stylesheet" type="text/css" href="css/inspection.css">
+	<link rel="stylesheet" type="text/css" href="css/button.css">
+</head>
+<body>
+	<div class="overflow-scroll">
+		<!-- Background overlay -->
+		<div class="black-opc hide"></div>
+
+		<!-- Fixed header -->
+		<section class="navbar navbar-default navbar-fixed-top" id="header">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<label class="hamburger-menu">
+						<img src="images/hamburger.png">
+					</label>
+					<a class="navbar-brand" href="#">
+						<span class="enterprise-logo">
+							<img src="images/logo.png">
+						</span>
+						<!--<span class="enterprise-name">
+							Outdoor inspection Services Group
+							<span class="enterprise-tagline">
+							Outdoor inspection Services Group
+							</span>
+						</span>-->
+					</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<div class="dropdown">
+								<div class="profile-dropdown" data-toggle="dropdown">
+									<div class="profile-desc">
+										<h5>Bala Subramani</h5>
+									</div>
+									<img src="images/dropdown.png" class="dropdown-img">
+								</div>
+								<div class="notification-popup header-notification profile-popup dropdown-menu">
+									<div class="notification-area">
+										<div class="n-desc">
+											<div class="a-profile">
+												<a href="">Sign Out</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<!-- main wrapper -->
+		<section id="main-wrapper">
+			<!-- sidebar -->
+			<div id="sidebar">
+				<div class="sidebar-list text-left">
+					<ul class="list-unstyled">
+						<li class="active">
+							<a href="index.html">
+								<img src="images/sidebar/inspection.png" alt="home">
+								<label>inspection</label>
+							</a>
+						</li>
+						<li>
+							<a href="chat.html">
+								<img src="images/sidebar/jobs.png" alt="chat">
+								<label>jobs</label>
+							</a>
+						</li>
+						<li>
+							<a href="contact.html">
+								<img src="images/sidebar/maps.png" alt="contact">
+								<label>Maps View</label>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/sidebar/user.png" alt="profile">
+								<label>Users</label>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- main wrapper -->
+			<div class="container-fluid" id="wrapper-container">
+                <!--<ol class="breadcrumb">
+                    <li><a href="#">Inspection</a></li>
+                    <li class="active">Add Jobs</li>
+                </ol>-->
+                <div class="row addnewList" id="inspection-data">
+                	<div class="newJobs-list">
+                		<h5>Add a new jobs</h5>
+                		<ul class="list-unstyled">
+                			<li>
+                				<label>
+                					Inspection Id:
+                				</label>
+                				<span>1234</span>
+                			</li>
+                			<li>
+                				<label>
+                					Campaign : 
+                				</label>
+                				<span>Palmolive</span>
+                			</li>
+                			<li>
+                				<label>
+                					Condition Check : 
+                				</label>
+                				<span>YES</span>
+                			</li>
+                			<li>
+                				<label>
+                					Client: 
+                				</label>
+                				<span>ABC</span>
+                			</li>
+                			<li>
+                				<label>
+                					Contractor : 
+                				</label>
+                				<span>AbC Nam</span>
+                			</li>
+                			<li>
+                				<label>
+                					Proximity Check: 
+                				</label>
+                				<span>YES</span>
+                			</li>
+                			<li>
+                				<label>
+                					Date Of Inspection: 
+                				</label>
+                				<span>23/5/2017</span>
+                			</li>
+                			<li>
+                				<label>
+                					Format : 
+                				</label>
+                				<span>Sample</span>
+                			</li>
+                			<li>
+                				<label>
+                					Share of Voice Check:
+                				</label>
+                				<span>YES</span>
+                			</li>
+                		</ul>
+                	</div>
+                </div>
+                <div class="col-md-12" id="confirm-section">
+                	<div class="booking-details">
+                		<div class="b-header">
+                			<h5>Job Details</h5>
+                		</div>
+                		<table class="table">
+                			<thead>
+                				<tr>
+                					<th>Site Id</th>
+                					<th>Panel Id</th>
+                					<th>Location</th>
+                					<th>Suburb</th>
+                					<th>GeoCoded Location</th>
+                					<th>Location on MAP</th>
+                					<th>End Date</th>
+                				</tr>
+                			</thead>
+                			<tbody>
+                				<tr>
+                					<td class="name">Stephen Wheeler</td>
+                					<td>Luxury</td>
+                					<td>3</td>
+                					<td>12 Feb - 15 Feb</td>
+                					<td> ₹ 4000</td>
+                					<td> ₹ 4000</td>
+                					<td> ₹ 4000</td>
+                				</tr>
+                				<tr>
+                					<td class="name">Stephen Wheeler</td>
+                					<td>Luxury</td>
+                					<td>3</td>
+                					<td>12 Feb - 15 Feb</td>
+                					<td> ₹ 4000</td>
+                					<td> ₹ 4000</td>
+                					<td> ₹ 4000</td>
+                				</tr>
+                			</tbody>
+                		</table>
+                		<nav class="text-center">
+                			<ul class="pagination">
+                				<li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+                				<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                				<li><a href="#">1</a></li>
+                				<li><a href="#">2</a></li>
+                				<li><a href="#">3</a></li>
+                				<li><a href="#">4</a></li>
+                				<li><a href="#">5</a></li>
+                				<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                				<li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                			</ul>
+                		</nav>
+                	</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="js/vendor/jquery-3.1.0.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
+    <script type="text/javascript">
+        var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+                kumulos_init.call('getInspectionDetails',{inspection_DetailID:43},function(res){
+
+                })
+    </script>
+</body>
+</html>

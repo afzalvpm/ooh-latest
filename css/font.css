@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'LatoRegular';
+    src: url('../fonts/lato-regular/LatoRegular.eot');
+    src: url('../fonts/lato-regular/LatoRegular.eot') format('embedded-opentype'), url('../fonts/lato-regular/LatoRegular.woff2') format('woff2'), url('../fonts/lato-regular/LatoRegular.woff') format('woff'), url('../fonts/lato-regular/LatoRegular.ttf') format('truetype'), url('../fonts/lato-regular/LatoRegular.svg#LatoRegular') format('svg');
+}
+
+@font-face {
+    font-family: 'LatoLight';
+    src: url('../fonts/lato-light/LatoLight.eot');
+    src: url('../fonts/lato-light/LatoLight.eot') format('embedded-opentype'), url('../fonts/lato-light/LatoLight.woff2') format('woff2'), url('../fonts/lato-light/LatoLight.woff') format('woff'), url('../fonts/lato-light/LatoLight.ttf') format('truetype'), url('../fonts/lato-light/LatoLight.svg#LatoLight') format('svg');
+}
+
+@font-face {
+    font-family: 'LatoBold';
+    src: url('../fonts/lato-bold/LatoBold.eot');
+    src: url('../fonts/lato-bold/LatoBold.eot') format('embedded-opentype'), url('../fonts/lato-bold/LatoBold.woff2') format('woff2'), url('../fonts/lato-bold/LatoBold.woff') format('woff'), url('../fonts/lato-bold/LatoBold.ttf') format('truetype'), url('../fonts/lato-bold/LatoBold.svg#LatoBold') format('svg');
+}
