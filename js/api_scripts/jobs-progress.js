@@ -60,17 +60,39 @@ $(document).on("click",".pagination .next-element",function(e){
 })
 
 $(".sorty-by").on("click",function(){
+	$(this).toggleClass("asc");
 	if($(this).attr("data-type") =="name"){
+		if($(this).hasClass("asc")){
+			var start = -1;
+			var end = 1;
+		}else{
+			var start = 1;
+			var end = -1;
+		}
 		$('#job-list tr').sortElements(function(a, b){
-			return $(a).find(".userName").text() > $(b).find(".userName").text() ? 1 : -1;
+			return $(a).find(".userName").text() > $(b).find(".userName").text() ? start:end;
 		});
 	}else if($(this).attr("data-type") =="status"){
+		if($(this).hasClass("asc")){
+			var start = -1;
+			var end = 1;
+		}else{
+			var start = 1;
+			var end = -1;
+		}
 		$('#job-list tr').sortElements(function(a, b){
-			return $(a).find(".progress-bar").attr("aria-valuenow") >$(b).find(".progress-bar").attr("aria-valuenow") ? 1 : -1;
+			return $(a).find(".progress-bar").attr("aria-valuenow") >$(b).find(".progress-bar").attr("aria-valuenow") ? start:end;
 		});
 	}else if($(this).attr("data-type") =="coloumn"){
+		if($(this).hasClass("asc")){
+			var start = -1;
+			var end = 1;
+		}else{
+			var start = 1;
+			var end = -1;
+		}
 		$('#job-list tr').sortElements(function(a, b){
-			return $(a).find(".coloumn").text() > $(b).find(".coloumn").text() ? 1 : -1;
+			return $(a).find(".coloumn").text() > $(b).find(".coloumn").text() ?start:end;
 		});
 	}
 })

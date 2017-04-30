@@ -57,7 +57,6 @@ $(function(){
 
 $("#search-job-button").on("click",function(e){
 	e.preventDefault();
-	debugger
 	var user_name = $("#search-name").val()
 	var user_email = $("#search-email").val()
 	if(user_name.length && user_email.length){
