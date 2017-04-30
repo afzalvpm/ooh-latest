@@ -12,7 +12,9 @@ function load_user_jobs(){
 		var job_array = res[0]['data']
 		var job_array_length = Object.keys(res[0]['data']).length
 		for(i=0;i<job_array_length;i++){
-			$("#job-list").append(template(job_array[i]));
+			element = job_array[i]
+			element['completeddate'] = moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
+			$("#job-list").append(template(element));
 		}
 		var values = numberofrecs
 		var pagination_limit = res[0]['totalrecs']/numberofrecs;
@@ -68,7 +70,9 @@ $("#search-job-by-name").click(function(){
 			var job_array = res[0]
 			var job_array_length = Object.keys(res[0]).length
 			for(i=0;i<job_array_length;i++){
-				$("#job-list").append(template(job_array[i]));
+				element = job_array[i]
+				element['completeddate'] = moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
+				$("#job-list").append(template(element));
 			}
 			$(".pagination").addClass("hide")
 			$("#search-area").attr("disabled","disabled")
@@ -114,5 +118,5 @@ $(document).on("click",".pagination .next-element",function(e){
 })
 
 $(function(){ 
-load_user_jobs()
+	load_user_jobs()
 });

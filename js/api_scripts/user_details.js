@@ -9,7 +9,6 @@ function load_user_jobs(email,name,type,offset){
 		email:email,
 		userid:0
 	}
-	debugger
 	console.log(post_data)
 	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
 	kumulos_init.call('viewalljobsdetails',post_data,function(res){
@@ -23,7 +22,7 @@ function load_user_jobs(email,name,type,offset){
 				for(i=0;i<job_array.length;i++){
 					var element = job_array[i]
 					var date = new Date(parseInt(element.completedDate));
-					element['completeddate'] = date.toString("MMM dd")
+					element['completeddate'] = moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
 					$("table.table[data-type='"+type+"'] .job-list").append(template(element));
 
 				}
