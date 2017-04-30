@@ -23,7 +23,6 @@
 					required:true
 				}
 			},
-
 			messages: {
 				email:{
 					required:"Please Enter email id",
