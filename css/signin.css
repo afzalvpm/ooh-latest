@@ -234,6 +234,7 @@
 	font-family: "LatoRegular";
 	margin-top: 1px;
 	margin-left: 5px;
+	vertical-align: top;
 }
 .s-form .checkbox label a{
 	color: #46AFEC !important;
@@ -275,16 +276,16 @@
 .checkbox.error .error-label{
 	display: inline-block;
 }
-#signin-form .form-control.error{
+.form-group.error .form-control{
 	border: 1px solid #C92F1F;
 }
 .form-group.error .error-label,
-.checkbox.error .error{
+.checkbox.error .error-label{
 	display: block;
 	color: #C92F1F;
 	font-size: 12px;
 	font-family: "LatoRegular";
-	margin-top: 0px;
+	margin-top: 7px;
 }
 .form-group .pwd-input{
 	float: right;
@@ -366,13 +367,4 @@
 		color: #33424F;
 		line-height: 20px;
 	}
-}
-#email-field-error.error,#password-field-error.error,#signin-form .error-display,#password1-field-error,#username-field-error{
-	color: #C92F1F;
-}
-#terms-error.error{
-	display: none;
-}
-#signup-terms.error,#signup-terms.error::before{
-	border: 1px solid #C92F1F;
 }

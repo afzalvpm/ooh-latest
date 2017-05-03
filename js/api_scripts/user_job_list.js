@@ -156,33 +156,60 @@ $(".download-data").on("click",function(){
 	var checked_jobs = $("#job-list tr input:checked");
 	var columns = ["INSPECTION ID", "JOB ID","SIN","JOB TYPE", "Completed date & time"];
 	var rows = []
+	var inspections = []
+	var data = {
+		client:'Sample',
+		campaign:'Sample',
+		condition_check:'Sample',
+		data:[{panel_id:'2',location:'valapuram'},{panel_id:'3',location:'Malappuram'}]
+	}
 	
-	if(checked_jobs.length){
+	// if(checked_jobs.length){
 		var rows = [
 		// [1, "Shaw", "Tanzania", ...],
 		// [2, "Nelson", "Kazakhstan", ...],
 		// [3, "Garcia", "Madagascar", ...],
 		// ...
 		];
-		for(i=0;i<checked_jobs.length;i++){
-			var element =[];
-			var job = $(checked_jobs[i]).closest("tr")
-			debugger
-			var job_elements = job.find(".job-element")
-			for(j=0;j<job_elements.length;j++){
-				element.push($(job_elements[j]).text())
-			}
-			rows.push(element)
+		// for(i=0;i<checked_jobs.length;i++){
+		// 	var element =[];
+		// 	var job = $(checked_jobs[i]).closest("tr")
+		// 	var job_elements = job.find(".job-element")
+		// 	newItem = job.find(".job-element[data-type='INSPECTION ID']").text();
+		// 	inspections.indexOf(newItem) ===-1?inspections.push(newItem): console.log("This item already exists");
+		// 	for(j=0;j<job_elements.length;j++){
+		// 		element.push($(job_elements[j]).text())
 
-			
-		}
-		console.log(rows)
-		var doc = new jsPDF();
-		doc.autoTable(columns, rows);
-		doc.autoTable(columns, rows);
+		// 	}
+		// 	rows.push(element)
+		// 	debugger
+
+
+		// }
+		var doc = new jsPDF('p','pt', 'a4', true);
+		inc = 15;
+		doc.rect(10, inc, 24, 8);
+		doc.rect(34, inc, 111, 8);
+		doc.rect(145, inc, 15, 8);
+		doc.rect(160, inc, 20, 8);
+		doc.rect(180, inc, 23, 8);
+
+		doc.addPage(focus);
+		doc.setLineWidth(0.5);
+		inc = 15;
+		height = 18;
+
+
+		doc.rect(10, inc, 24, 8);
+		doc.text("afxal", 11, height);
+		// console.log(inspections)
+		// console.log(rows)
+		// var doc = new jsPDF();
+		// doc.autoTable(columns, rows);
+		// doc.autoTable(columns, rows);
 		doc.save('table.pdf');
 
-	}
+	// }
 })
 $("#select-all-jobs").on("change",function(e){
 	if($(this).is(':checked')){

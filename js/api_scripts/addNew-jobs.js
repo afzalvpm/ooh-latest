@@ -122,12 +122,13 @@ $(document).on("blur",".job-element",function(){
 	var job_element = $(this).closest(".job-parent").find(".job-element")
 	var post_data = {
 		jobID:$(this).closest(".job-parent").attr("data-id"),
-		endDate:$(this).closest(".job-parent").find(".form_datetime input").val()
+		endDate:moment($(this).closest(".job-parent").find(".form_datetime input").val(), "DD-MM-YYYY HH:mm A").valueOf()
 	}
 	for(i=0;i<job_element.length;i++){
 
 		post_data[$(job_element[i]).attr("data-type")] = $(job_element[i]).text()
 	}
+	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
 	kumulos_init.call('updatejobs',post_data,function(res){
 
 	})
@@ -202,7 +203,6 @@ $(function(){
 				element_array.push({label:i+1,index:i,is_hidden:is_hidden});
 			}
 			var pagination_template = _.template($('#pagination-template').html());
-			console.log(pagination_template({items:element_array}))
 			$(".pagination").html(pagination_template({items:element_array}));
 
 

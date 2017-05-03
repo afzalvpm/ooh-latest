@@ -79,7 +79,6 @@ select {
 }
 .jobs-tab .inspection-data.active{
   border-top: 2px solid #3b5bb2;
-  background-color: rgba(246, 246, 246, 0.61);
 }
 /*add new jobs*/
 .newJobs-list h5{

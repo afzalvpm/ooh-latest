@@ -15,7 +15,6 @@ function load_user_jobs(email,name,type,offset){
 		console.log(res)
 				// $("#job-list").append(_.template(template,{items:res}));
 				$("table.table[data-type='"+type+"'] .job-list").html("")
-				debugger
 				var job_array = res[0]['data']
 				var job_array_length = Object.keys(res[0]['data']).length
 				var template = _.template($('.job-template[data-type="'+type+'"]').html());
@@ -49,6 +48,9 @@ $(function(){
 	load_user_jobs("aru.raval@gmail.com","Arundhati","WIP",0)
 	load_user_jobs("aru.raval@gmail.com","Arundhati","completed",0)
 	load_user_jobs("aru.raval@gmail.com","Arundhati","canceled",0)
+	$("#search-name").val("Arundhati").attr("disabled","disabled");
+	$("#search-email").val("aru.raval@gmail.com").attr("disabled","disabled");
+
 
 
 

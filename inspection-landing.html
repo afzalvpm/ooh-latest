@@ -89,19 +89,19 @@
 							</a>
 						</li>
 						<li>
-							<a href="chat.html">
+							<a href="jobs-landing.html">
 								<img src="images/sidebar/jobs.png" alt="chat">
 								<label>jobs</label>
 							</a>
 						</li>
 						<li>
-							<a href="contact.html">
+							<a href="">
 								<img src="images/sidebar/maps.png" alt="contact">
 								<label>Maps View</label>
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="user-details.html">
 								<img src="images/sidebar/user.png" alt="profile">
 								<label>Users</label>
 							</a>
@@ -114,20 +114,26 @@
 				<div class="col-md-12 inspection-list">
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data">
-							<img src="images/addnew.png" alt="">
-							<label>Add a new inspection</label>
+							<a href="new-inspection.html">
+								<img src="images/addnew.png" alt="">
+								<label>Add a new inspection</label>
+							</a>
 						</div>
 					</div>
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data">
-							<img src="images/progress.png" alt="">
-							<label>View Completed inspection</label>
+							<a href="">
+								<img src="images/progress.png" alt="">
+								<label>View Completed inspection</label>
+							</a>
 						</div>
 					</div>
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data">
-							<img src="images/completed.png" alt="">
-							<label>Inspection in Progress</label>
+							<a href="">
+								<img src="images/completed.png" alt="">
+								<label>Inspection in Progress</label>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -156,59 +162,59 @@
 	<script>
 		// subscribe chart
 		var splinechart = c3.generate({
-		size: {
-			height: 270,
-		},
-		bindto: '#subscribe-chart',
+			size: {
+				height: 270,
+			},
+			bindto: '#subscribe-chart',
 
-		padding: {
-			top: 10,
-			right: 15,
-			bottom: 0,
-			left: 40,
-		},
-		data: {
-			columns: [
+			padding: {
+				top: 10,
+				right: 15,
+				bottom: 0,
+				left: 40,
+			},
+			data: {
+				columns: [
 				['TotalSubscribe', 300, 350, 300, 210, 110, 90,200],
 				['Ios', 130, 100, 140, 200, 150, 50,300],
 				['android', 130, 120, 130, 270, 160, 80,200],
-			],
-			types: {
-				totalSubscribe: 'spline',
-				ios: 'spline',
-				android: 'spline',
-			},
-			colors: {
-				totalSubscribe: '#5cd293',
-				ios: '#1a78dd',
-				android: '#1a78dd',
-			},
+				],
+				types: {
+					totalSubscribe: 'spline',
+					ios: 'spline',
+					android: 'spline',
+				},
+				colors: {
+					totalSubscribe: '#5cd293',
+					ios: '#1a78dd',
+					android: '#1a78dd',
+				},
 
-		},
-		tooltip: {
-			show: false
-		},
-		point: {
-			show: false
-		},
-		axis: {
-			x: {
-				type: 'category',
-				categories: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
-				padding: {
-					left: -0.5,
-					right: -0.5,
-				}
 			},
-			y: {
-				padding: {bottom: 0},
-				min: 0,
-				tick: {
-					format: d3.format("s")
-				}
+			tooltip: {
+				show: false
 			},
-		}
-	});
+			point: {
+				show: false
+			},
+			axis: {
+				x: {
+					type: 'category',
+					categories: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+					padding: {
+						left: -0.5,
+						right: -0.5,
+					}
+				},
+				y: {
+					padding: {bottom: 0},
+					min: 0,
+					tick: {
+						format: d3.format("s")
+					}
+				},
+			}
+		});
 
 	// job notification chart
 	var splinechart = c3.generate({
@@ -263,6 +269,6 @@
 			},
 		}
 	});
-	</script>
+</script>
 </body>
 </html>

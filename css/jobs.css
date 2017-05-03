@@ -8,12 +8,22 @@
     padding: 15px;
     font-family: 'LatoBold';
     font-size: 14px;
+    display: inline-block;
 }
 
+.width80{
+    width: 80px;
+    display: inline-block;
+}
 .v-data {
     padding: 0px;
 }
-
+.user_job_list .dd-data .input-group {
+    top: 18px;
+}
+.viewby{
+    margin-top: 10px;
+}
 .userData {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
     background-color: #FFFFFF;
@@ -74,9 +84,31 @@
 .onsite{
     background-color: #d9534f;
 }
+.download-data{
+ position: absolute;
+ right: 30px;
+ bottom: 10px;
+}
+.download-data label{
+    font-family: 'LatoBold';
+    font-size: 15px;
+    color: #3B5BB2;
+    border:1px solid #3B5BB2;
+    padding: 10px;
+    cursor: pointer;
+}
+.viewby label{
+    font-family: "LatoRegular";
+}
+
 /*responsive css*/
 @media screen and (max-width: 991px) {
     .inspection-data {
         margin-top: 15px;
+    }
+    .download-data{
+        position: inherit;
+        left: 30px;
+        bottom: 20px;
     }
 }
