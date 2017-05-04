@@ -155,12 +155,12 @@
 										<th>Column <i class="fa fa-sort" aria-hidden="true"></i></th>
 									</tr>
 								</thead>
-								<tbody class="job-list">
+								<tbody class="job-list" data-type="WIP">
 									
 								</tbody>
 							</table>
 							<nav class="text-center">
-								<ul class="pagination">
+								<ul class="pagination" data-type="WIP">
 									
 								</ul>
 							</nav>
@@ -190,12 +190,12 @@
 										<th>Completed date &amp; time</th>
 									</tr>
 								</thead>
-								<tbody class="job-list">
+								<tbody class="job-list" data-type="completed">
 									
 								</tbody>
 							</table>
 							<nav class="text-center">
-								<ul class="pagination">
+								<ul class="pagination" data-type="completed">
 									
 								</ul>
 							</nav>
@@ -225,12 +225,12 @@
 										<th>Completed date &amp; time</th>
 									</tr>
 								</thead>
-								<tbody class="job-list">
+								<tbody class="job-list" data-type="canceled">
 									
 								</tbody>
 							</table>
 							<nav class="text-center">
-								<ul class="pagination">
+								<ul class="pagination" data-type="canceled">
 								</ul>
 							</nav>
 						</div>
@@ -277,6 +277,25 @@
 	</script>
 	<script type="text/template" class="job-template" data-type="canceled">
 	</script>
+		<script type="text/template" id="pagination-template">
+		<li class="first-element" data-action="first"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+		<li class="previous-element"><a href="#" aria-label="Previous" data-action="previous"><span aria-hidden="true">«</span></a></li>
+		<input class="hide" type="text" readonly="readonly" data-max-page="<%=items.length%>"/>
+		<%_.each(items, function(item) {%>
+		<%if(item.index ==0){%>
+		<li class="pagination-element active" data-index="<%=item.index%>">
+			<%}else{%>
+			<%if(item.is_hidden){%>
+			<li class="pagination-element hide" data-index="<%=item.index%>">
+				<%}else{%>
+				<li class="pagination-element" data-index="<%=item.index%>">
+					<%}}%>
+					<a href="#"><%=item.label%></a>
+				</li>
+				<%})%>
+				<li class="next-element"><a href="#" aria-label="Next" data-action="next"><span aria-hidden="true">»</span></a></li>
+				<li class="last-element" data-action="last"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+			</script>
 	<script src="js/vendor/jquery-3.1.0.min.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>

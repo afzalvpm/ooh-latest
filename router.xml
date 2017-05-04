@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<RoutingRules>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>home</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyWith>signup.html</ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>signup</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyWith>signup.html</ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>forgot-password/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyWith>forgot-password.html</ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+</RoutingRules>
+
+
+<RoutingRules>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>home</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyWith>index.html</ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>forgot-password/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyWith>forgot-password.html</ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+</RoutingRules>

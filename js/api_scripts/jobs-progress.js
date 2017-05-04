@@ -7,27 +7,30 @@ $(document).on("click",".pagination-element",function(){
 		offset:parseInt($(this).attr("data-index"))*2,
 		username:"ALL",
 		email:"ALL",
-		userid:0
+		userid:0,
+		jwt_token:localStorage['ooh-jwt-token']
 	}
-	var template = _.template($('#job-template').html());
-	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
-	kumulos_init.call('viewalljobsdetails',post_data,function(res){
-		var job_array = res[0]['data']
-		var job_array_length = Object.keys(res[0]['data']).length
-		if(job_array_length){
-			console.log(res)
-			$("#job-list").html("")				
-			var template = _.template($('#job-template').html());
-			for(i=0;i<job_array.length;i++){
-				var element = job_array[i]
-				var date = new Date(parseInt(element.completedDate));
-				element['completeddate'] = moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
+	if(typeof(localStorage['ooh-jwt-token'])!=undefined){
+		var template = _.template($('#job-template').html());
+		var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+		kumulos_init.call('viewalljobsdetails',post_data,function(res){
+			var job_array = res[0]['data']
+			var job_array_length = Object.keys(res[0]['data']).length
+			if(job_array_length){
+				console.log(res)
+				$("#job-list").html("")				
+				var template = _.template($('#job-template').html());
+				for(i=0;i<job_array.length;i++){
+					var element = job_array[i]
+					var date = new Date(parseInt(element.completedDate));
+					element['completeddate'] = moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
 
-				$("#job-list").append(template(element));
+					$("#job-list").append(template(element));
 
+				}
 			}
-		}
-	})
+		})
+	}
 })
 $(document).on("click",".pagination .last-element",function(e){
 	e.preventDefault();
@@ -106,37 +109,39 @@ $(function(){
 		offset:0,
 		username:"ALL",
 		email:"ALL",
-		userid:0
+		userid:0,
+		jwt_token:localStorage['ooh-jwt-token']
 	}
-
-	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
-	kumulos_init.call('viewalljobsdetails',post_data,function(res){
-		console.log(res)
-		$("#job-list").html("")
-		var job_array = res[0]['data']
-		var job_array_length = Object.keys(res[0]['data']).length
-		var template = _.template($('#job-template').html());
-		for(i=0;i<job_array.length;i++){
-			var element = job_array[i]
-			var date = new Date(parseInt(element.completedDate));
-			element['completeddate'] = moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
-			$("#job-list").append(template(element));
-		}
-		var pagination_limit = res[0]['totalcount']/numberofrecs;
-		var no_elements = parseInt(pagination_limit);
-		if(pagination_limit.toString().indexOf(".")>0 && pagination_limit>0){
-			no_elements +=1 ;
-		}
-		if(no_elements>1){
-			var element_array = [];
-			var template = _.template($('#pagination-template').html());
-			for(i=0;i<no_elements;i++){
-				var is_hidden = max_pagination_elements > i ? false : true;
-				element_array.push({label:i+1,index:i,is_hidden:is_hidden});
+	if(typeof(localStorage['ooh-jwt-token'])!=undefined){
+		var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+		kumulos_init.call('viewalljobsdetails',post_data,function(res){
+			console.log(res)
+			$("#job-list").html("")
+			var job_array = res[0]['data']
+			var job_array_length = Object.keys(res[0]['data']).length
+			var template = _.template($('#job-template').html());
+			for(i=0;i<job_array.length;i++){
+				var element = job_array[i]
+				var date = new Date(parseInt(element.completedDate));
+				element['completeddate'] = moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
+				$("#job-list").append(template(element));
 			}
-			$(".pagination").html(template({items:element_array}));
+			var pagination_limit = res[0]['totalcount']/numberofrecs;
+			var no_elements = parseInt(pagination_limit);
+			if(pagination_limit.toString().indexOf(".")>0 && pagination_limit>0){
+				no_elements +=1 ;
+			}
+			if(no_elements>1){
+				var element_array = [];
+				var template = _.template($('#pagination-template').html());
+				for(i=0;i<no_elements;i++){
+					var is_hidden = max_pagination_elements > i ? false : true;
+					element_array.push({label:i+1,index:i,is_hidden:is_hidden});
+				}
+				$(".pagination").html(template({items:element_array}));
 
 
-		}
-	})
+			}
+		})
+	}
 });

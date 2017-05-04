@@ -35,38 +35,41 @@ $(document).on("click",".pagination-element",function(){
 	var post_data = {
 		campaign:40,
 		numberofrec:numberofrecs,
-		offset:parseInt($(this).attr("data-index"))*2
+		offset:parseInt($(this).attr("data-index"))*2,
+		jwt_token:localStorage['ooh-jwt-token']
 	}
-	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
-	kumulos_init.call('getjoblistDetails',post_data,function(res){
-		console.log(res)
-		$("#job-list").html("")
-		var template = _.template($('#job-template').html());
-		var job_array = res[0]['data']
-		var job_array_length = Object.keys(res[0]['data']).length
-		for(i=0;i<job_array_length;i++){
-			var element = job_array[i]
-			newdate =moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
-			var item = {
-				siteId:job_array[i].siteId,
-				panalId:job_array[i].panalId,
-				location:job_array[i].location,
-				suburb:job_array[i].suburb,
-				jobID:job_array[i].jobID,
-				endDate:newdate,
-				latitude:job_array[i].latitude,
-				longitude:job_array[i].longitude,
-				index:i
+	if(typeof(localStorage['ooh-jwt-token'])!=undefined){
+		var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+		kumulos_init.call('getjoblistDetails',post_data,function(res){
+			console.log(res)
+			$("#job-list").html("")
+			var template = _.template($('#job-template').html());
+			var job_array = res[0]['data']
+			var job_array_length = Object.keys(res[0]['data']).length
+			for(i=0;i<job_array_length;i++){
+				var element = job_array[i]
+				newdate =moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
+				var item = {
+					siteId:job_array[i].siteId,
+					panalId:job_array[i].panalId,
+					location:job_array[i].location,
+					suburb:job_array[i].suburb,
+					jobID:job_array[i].jobID,
+					endDate:newdate,
+					latitude:job_array[i].latitude,
+					longitude:job_array[i].longitude,
+					index:i
 
 
+				}
+				$("#job-list").append(template(item));
+				$("#date-time-picker"+i).datetimepicker({format: 'dd-mm-yyyy HH:ii P',showMeridian: true,autoclose: true}).on('changeDate', function(ev){
+					$(ev.currentTarget).closest(".job-parent").find(".job-element[data-type='location']").blur();
+
+				});
 			}
-			$("#job-list").append(template(item));
-			$("#date-time-picker"+i).datetimepicker({format: 'dd-mm-yyyy HH:ii P',showMeridian: true,autoclose: true}).on('changeDate', function(ev){
-				$(ev.currentTarget).closest(".job-parent").find(".job-element[data-type='location']").blur();
-				
-			});
-		}
-	})
+		})
+	}
 })
 $(document).on("click",".view-map",function(){
 	var latlon = $(this).closest(".job-parent").find(".job-element[data-type='latlon']").text().split(",")
@@ -122,16 +125,20 @@ $(document).on("blur",".job-element",function(){
 	var job_element = $(this).closest(".job-parent").find(".job-element")
 	var post_data = {
 		jobID:$(this).closest(".job-parent").attr("data-id"),
-		endDate:moment($(this).closest(".job-parent").find(".form_datetime input").val(), "DD-MM-YYYY HH:mm A").valueOf()
+		endDate:moment($(this).closest(".job-parent").find(".form_datetime input").val(), "DD-MM-YYYY HH:mm A").valueOf(),
+		jwt_token:localStorage['ooh-jwt-token']
 	}
 	for(i=0;i<job_element.length;i++){
 
 		post_data[$(job_element[i]).attr("data-type")] = $(job_element[i]).text()
 	}
-	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
-	kumulos_init.call('updatejobs',post_data,function(res){
+	post_data['jwt_token']=localStorage['ooh-jwt-token']
+	if(typeof(localStorage['ooh-jwt-token'])!=undefined){
+		var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+		kumulos_init.call('updatejobs',post_data,function(res){
 
-	})
+		})
+	}
 })
 
 
@@ -143,71 +150,73 @@ $(function(){
 	var post_data ={
 		campaign:40,
 		offset:0,
-		numberofrec:numberofrecs
+		numberofrec:numberofrecs,
+		jwt_token:localStorage['ooh-jwt-token']
 	}
-	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
-	kumulos_init.call('getInspectionDetails',{inspection_DetailID:43},function(res){
-		if(res){
-			$("#inspection-id").text(res[0].inspection_DetailID)
-			$("#contractor-name").text(res[0].contractor)
-			$("#condition_check").text(res[0].conditionCheck)
-			$("#contractor").text(res[0].contractor)
-			$("#client-name").text(res[0].client)
-			$("#condition-check").text(res[0].conditionCheck)
-			$("#date-of-inspection").text(res[0].dateofInspection)
-			$("#proximity-check").text(res[0].proximityCheck)
-			$("#inspection-format").text(res[0].format)
-			$("#share-of-voice").text(res[0].shareofVoiceCheck)
-			$("#campaign").text(res[0].campaign)
-		}
-
-	})
-
-	var template = _.template($('#job-template').html());
-	kumulos_init.call('getjoblistDetails',post_data,function(res){
-		console.log(res)
-		$("#job-list").html("")
-		var job_array = res[0]['data']
-		var job_array_length = Object.keys(res[0]['data']).length
-		for(i=0;i<job_array_length;i++){
-			newdate =moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
-			var item = {
-				jobID:job_array[i].jobID,
-				siteId:job_array[i].siteId,
-				panalId:job_array[i].panalId,
-				location:job_array[i].location,
-				suburb:job_array[i].suburb,
-				endDate:newdate,
-				latitude:job_array[i].latitude,
-				longitude:job_array[i].longitude,
-				index:i
+	if(typeof(localStorage['ooh-jwt-token'])!=undefined){
+		var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+		kumulos_init.call('getInspectionDetails',{inspection_DetailID:43},function(res){
+			if(res){
+				$("#inspection-id").text(res[0].inspection_DetailID)
+				$("#contractor-name").text(res[0].contractor)
+				$("#condition_check").text(res[0].conditionCheck)
+				$("#contractor").text(res[0].contractor)
+				$("#client-name").text(res[0].client)
+				$("#condition-check").text(res[0].conditionCheck)
+				$("#date-of-inspection").text(res[0].dateofInspection)
+				$("#proximity-check").text(res[0].proximityCheck)
+				$("#inspection-format").text(res[0].format)
+				$("#share-of-voice").text(res[0].shareofVoiceCheck)
+				$("#campaign").text(res[0].campaign)
 			}
-			$("#job-list").append(template(item));
-			$("#date-time-picker"+i).datetimepicker({format: 'dd-mm-yyyy HH:ii P',showMeridian: true,autoclose: true}).on('changeDate', function(ev){
-				$(ev.currentTarget).closest(".job-parent").find(".job-element[data-type='location']").blur();
 
-			});
+		})
+		var template = _.template($('#job-template').html());
+		kumulos_init.call('getjoblistDetails',post_data,function(res){
+			console.log(res)
+			$("#job-list").html("")
+			var job_array = res[0]['data']
+			var job_array_length = Object.keys(res[0]['data']).length
+			for(i=0;i<job_array_length;i++){
+				newdate =moment.utc(parseInt(job_array[i]['endDate'])).format("DD-MM-YYYY HH:mm A");
+				var item = {
+					jobID:job_array[i].jobID,
+					siteId:job_array[i].siteId,
+					panalId:job_array[i].panalId,
+					location:job_array[i].location,
+					suburb:job_array[i].suburb,
+					endDate:newdate,
+					latitude:job_array[i].latitude,
+					longitude:job_array[i].longitude,
+					index:i
+				}
+				$("#job-list").append(template(item));
+				$("#date-time-picker"+i).datetimepicker({format: 'dd-mm-yyyy HH:ii P',showMeridian: true,autoclose: true}).on('changeDate', function(ev){
+					$(ev.currentTarget).closest(".job-parent").find(".job-element[data-type='location']").blur();
 
-		}
-		var values = numberofrecs
-		var pagination_limit = res[0]['totalrecs']/numberofrecs;
-		var no_elements = parseInt(pagination_limit);
-		if(pagination_limit.toString().indexOf(".")>0 && pagination_limit>1){
-			no_elements +=1 ;
-		}
+				});
 
-		if(no_elements>1){
-			var element_array = [];
-			for(i=0;i<no_elements;i++){
-				var is_hidden = max_pagination_elements > i ? false : true;
-				element_array.push({label:i+1,index:i,is_hidden:is_hidden});
 			}
-			var pagination_template = _.template($('#pagination-template').html());
-			$(".pagination").html(pagination_template({items:element_array}));
+			var values = numberofrecs
+			var pagination_limit = res[0]['totalrecs']/numberofrecs;
+			var no_elements = parseInt(pagination_limit);
+			if(pagination_limit.toString().indexOf(".")>0 && pagination_limit>1){
+				no_elements +=1 ;
+			}
+
+			if(no_elements>1){
+				var element_array = [];
+				for(i=0;i<no_elements;i++){
+					var is_hidden = max_pagination_elements > i ? false : true;
+					element_array.push({label:i+1,index:i,is_hidden:is_hidden});
+				}
+				var pagination_template = _.template($('#pagination-template').html());
+				$(".pagination").html(pagination_template({items:element_array}));
 
 
-		}
+			}
 
-	})
+		})
+	}
 
 })
