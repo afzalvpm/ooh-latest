@@ -14,7 +14,7 @@ function get_header_row(sheet) {
         headers.push(hdr);
     }
     // console.log(headers)
-    if(headers.indexOf("Site_Id")>-1 && headers.indexOf("Panal_id")>-1 && headers.indexOf("Location")>-1 && headers.indexOf("Suburb")>-1 && headers.indexOf("Latitude")>-1 && headers.indexOf("Longitude")>-1 && headers.indexOf("End_Date")>-1 )
+    if(headers.indexOf("Site_Id")>-1 && headers.indexOf("Panal_id")>-1 && headers.indexOf("Location")>-1 && headers.indexOf("Suburb")>-1 && headers.indexOf("Latitude")>-1 && headers.indexOf("Longitude")>-1 && headers.indexOf("End_Date")>-1  && headers.indexOf("Job_Type"))
         return true;
     else
         return false;
@@ -129,7 +129,7 @@ if(typeof(localStorage['ooh-jwt-token'])!=undefined){
     kumulos_init.call('insertdata',{'data':post_data,jwt_token:localStorage['ooh-jwt-token']},function(res){
     console.log(res)
     if(res[0].status=="success"){
-        window.location="/add-new-jobs/?inspectionid="+res[0].id
+        // window.location="/add-new-jobs/?inspectionid="+res[0].id
     }
 
 })
