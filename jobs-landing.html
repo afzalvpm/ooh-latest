@@ -13,11 +13,15 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/selectize.css" >
 	<link rel="stylesheet" type="text/css" href="css/font.css">
 	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="css/notification.css">
 	<link rel="stylesheet" type="text/css" href="css/inspection.css">
 	<link rel="stylesheet" type="text/css" href="css/jobs.css">
+	<link rel="stylesheet" type="text/css" href="css/selectize.css">
+	<link rel="stylesheet" type="text/css" href="css/group-modal.css">
+	<link rel="stylesheet" type="text/css" href="css/profile.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
 </head>
@@ -57,7 +61,7 @@
 							<div class="dropdown">
 								<div class="profile-dropdown" data-toggle="dropdown">
 									<div class="profile-desc">
-										<h5>Bala Subramani</h5>
+										<h5>Admin</h5>
 									</div>
 									<img src="images/dropdown.png" class="dropdown-img">
 								</div>
@@ -83,14 +87,14 @@
 			<div id="sidebar">
 				<div class="sidebar-list text-left">
 					<ul class="list-unstyled">
-						<li class="active">
-							<a href="index.html">
+						<li>
+							<a href="/new-inspection/">
 								<img src="images/sidebar/inspection.png" alt="home">
 								<label>inspection</label>
 							</a>
 						</li>
-						<li>
-							<a href="jobs-landing.html">
+						<li class="active">
+							<a href="/jobs-landing/">
 								<img src="images/sidebar/jobs.png" alt="chat">
 								<label>jobs</label>
 							</a>
@@ -102,7 +106,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="user-details.html">
+							<a href="/user-details/">
 								<img src="images/sidebar/user.png" alt="profile">
 								<label>Users</label>
 							</a>
@@ -115,7 +119,7 @@
 				<div class="col-md-12 inspection-list jobs-tab">
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data active">
-							<a href="jobs-landing.html">
+							<a href="/jobs-landing/">
 								<img src="images/addnew.png" alt="">
 								<label>View Jobs by User</label>
 							</div>
@@ -123,7 +127,7 @@
 					</div>
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data">
-							<a href="jobs-confirmed.html">
+							<a href="/jobs-confirmed/">
 								<img src="images/progress.png" alt="">
 								<label>View Completed Jobs</label>
 							</a>
@@ -131,7 +135,7 @@
 					</div>
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data">
-							<a href="jobs-progress.html">
+							<a href="/jobs-progress/">
 								<img src="images/job3.png" alt="">
 								<label>Jobs in Progress</label>
 							</a>
@@ -168,6 +172,30 @@
 			</div>
 		</section>
 	</div>
+	<!-- add assigne popup -->
+	<div class="modal fade createGroup-Modal a-dashboard profile-sharePopup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="container group-create">
+					<div class="close-modal text-center" data-dismiss="modal">
+						<img src="images/close-modal.png">
+						<label>Close</label>
+					</div>
+					<h5>Share with</h5>
+					<form>
+						<div class="form-group">
+							<label>Add Assigne</label>
+							<select id="select-to" class="contacts"></select>
+						</div>
+						<div class="btn-option pull-right">
+							<button class="btn btn-default cancel-btn">Cancel</button>
+							<button class="btn btn-default create-btn">Assign</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script type="text/template" id="job-template">
 		<div class="col-md-4">
 			<div class="userData">
@@ -179,6 +207,11 @@
 					<!-- <label></label> -->
 					<span><%=emailId%></span>
 					<label>Completed Jobs : <%=count%></label>
+					<label class="assigne-no">
+						No of Assigne: <%=count%>
+
+						<span class="Change_assigne" data-toggle="modal" data-target="#myModal">( Change Assigne )</span>
+					</label>
 				</div>
 			</div>
 		</div>
@@ -206,6 +239,8 @@
 			</script>
 			<script src="js/vendor/jquery-3.1.0.min.js"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>
+			<script src="js/vendor/selectize.js"></script>
+<script src="js/create-announcement.js"></script>
 			<script src="js/scripts.js"></script>
 			<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
 			<script src="js/vendor/underscore.min.js"></script>

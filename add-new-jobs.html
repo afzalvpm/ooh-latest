@@ -13,13 +13,16 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css">
 	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="css/notification.css">
 	<link rel="stylesheet" type="text/css" href="css/inspection.css">
 	<link rel="stylesheet" type="text/css" href="css/button.css">
+	<link rel="stylesheet" type="text/css" href="css/signin.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/jobs.css">
+
 	<link rel="stylesheet" type="text/css" media="screen"
 	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
@@ -54,7 +57,7 @@
 							<div class="dropdown">
 								<div class="profile-dropdown" data-toggle="dropdown">
 									<div class="profile-desc">
-										<h5>Bala Subramani</h5>
+										<h5>Admin</h5>
 									</div>
 									<img src="images/dropdown.png" class="dropdown-img">
 								</div>
@@ -81,7 +84,7 @@
 				<div class="sidebar-list text-left">
 					<ul class="list-unstyled">
 						<li class="active">
-							<a href="index.html">
+							<a href="inspection-landing.html">
 								<img src="images/sidebar/inspection.png" alt="home">
 								<label>inspection</label>
 							</a>
@@ -93,7 +96,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="maps_view.html">
 								<img src="images/sidebar/maps.png" alt="contact">
 								<label>Maps View</label>
 							</a>
@@ -176,12 +179,33 @@
 				</div>
 				<div class="col-md-12" id="confirm-section">
 					<div class="booking-details">
-						<div class="b-header">
-							<h5>Job Details</h5>
+						<div class="dd-data">
+							<div class="view-data">
+								<h5></h5>
+							</div>
+							<div class="input-group pull-right">
+								<input type="text" class="form-control" placeholder="Search by name / OISA Data" id="search-area">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button" id="search-job-by-name">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</button>
+									<button class="btn btn-default" type="button" id="clear-search">
+										<i class="fa fa-times" aria-hidden="true"></i>
+									</button>
+								</span>
+							</div>
 						</div>
+
 						<table class="table">
 							<thead>
 								<tr>
+									<th>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox">
+											</label>
+										</div>
+									</th>
 									<th>Site Id</th>
 									<th>Panel Id</th>
 									<th>Location</th>
@@ -206,7 +230,6 @@
 		</section>
 	</div>
 	<div class="modal modalalign" id="map-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div id="map-area" style="width: 100%; height: 400px;"></div>
@@ -215,6 +238,13 @@
 	</div>
 	<script type="text/template" id="job-template">
 		<tr class="job-parent" data-id="<%=jobID%>">
+			<th>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox">
+					</label>
+				</div>
+			</th>
 			<td class="job-element" contenteditable="true" data-type="siteid"><%=siteId%>dd</td>
 			<td class="job-element" contenteditable="true" data-type="panalid"><%=panalId%></td>
 			<td class="job-element" contenteditable="true" data-type="location"><%=location%></td>
@@ -256,7 +286,7 @@
 			<script src="js/vendor/bootstrap.min.js"></script>
 			<script src="js/scripts.js"></script>
 			<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
-			<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+			<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyC7lEhWOW6t8D5yWL0FwnL_Wa7QgyVNe7o&libraries=places'></script>
 			<script src="js/vendor/location.picker.min.js"></script>
 			<script src="js/vendor/underscore.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>

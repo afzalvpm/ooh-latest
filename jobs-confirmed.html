@@ -20,6 +20,8 @@
 	<link rel="stylesheet" type="text/css" href="css/button.css">
 	<link rel="stylesheet" type="text/css" href="css/signin.css">
 	<link rel="stylesheet" type="text/css" href="css/jobs.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
 </head>
 <body>
 	<div class="overflow-scroll">
@@ -57,7 +59,7 @@
 							<div class="dropdown">
 								<div class="profile-dropdown" data-toggle="dropdown">
 									<div class="profile-desc">
-										<h5>Bala Subramani</h5>
+										<h5>Admin</h5>
 									</div>
 									<img src="images/dropdown.png" class="dropdown-img">
 								</div>
@@ -83,14 +85,14 @@
 			<div id="sidebar">
 				<div class="sidebar-list text-left">
 					<ul class="list-unstyled">
-						<li class="active">
-							<a href="index.html">
+						<li>
+							<a href="/new-inspection/">
 								<img src="images/sidebar/inspection.png" alt="home">
 								<label>inspection</label>
 							</a>
 						</li>
-						<li>
-							<a href="jobs-landing.html">
+						<li class="active">
+							<a href="/jobs-landing/">
 								<img src="images/sidebar/jobs.png" alt="chat">
 								<label>jobs</label>
 							</a>
@@ -102,7 +104,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="user-details.html">
+							<a href="/user-details/">
 								<img src="images/sidebar/user.png" alt="profile">
 								<label>Users</label>
 							</a>
@@ -114,16 +116,16 @@
 			<div class="container-fluid" id="wrapper-container">
 				<div class="col-md-12 inspection-list jobs-tab">
 					<div class="col-md-4 mpad0 text-center">
-						<div class="inspection-data active">
-							<a href="jobs-landing.html">
+						<div class="inspection-data">
+							<a href="/jobs-landing/">
 								<img src="images/addnew.png" alt="">
 								<label>View Jobs by User</label>
 							</div>
 						</a>
 					</div>
 					<div class="col-md-4 mpad0 text-center">
-						<div class="inspection-data">
-							<a href="jobs-confirmed.html">
+						<div class="inspection-data active">
+							<a href="/jobs-confirmed/">
 								<img src="images/progress.png" alt="">
 								<label>View Completed Jobs</label>
 							</a>
@@ -131,7 +133,7 @@
 					</div>
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data">
-							<a href="jobs-progress.html">
+							<a href="/jobs-progress/">
 								<img src="images/job3.png" alt="">
 								<label>Jobs in Progress</label>
 							</a>
@@ -140,8 +142,21 @@
 				</div>
 				<div class="col-md-12" id="confirm-section">
 					<div class="booking-details">
-						<div class="b-header">
-							<h5>View Completed Jobs</h5>
+						<div class="dd-data">
+							<div class="view-data">
+								<h5>View Completed Jobs</h5>
+							</div>
+							<div class="input-group pull-right">
+								<input type="text" class="form-control" id="search-area" placeholder="Search by name / OISA Data">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button" id="search-job-by-name">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</button>
+									<button class="btn btn-default" type="button" id="clear-search">
+										<i class="fa fa-times" aria-hidden="true"></i>
+									</button>
+								</span>
+							</div>
 						</div>
 						<table class="table">
 							<thead>
@@ -170,6 +185,12 @@
 								
 							</ul>
 						</nav>
+						<div class="download-data">
+							<label>
+								DOWNLOAD REPORT 
+								<i class="fa fa-download" aria-hidden="true"></i>
+							</label>
+						</div>
 					</div>
 				</div>
 			</div>

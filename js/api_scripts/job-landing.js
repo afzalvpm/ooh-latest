@@ -46,7 +46,8 @@ $(document).on("click",".pagination-element",function(){
 	$(this).addClass("active")
 	var post_data = {
 		numberofrec:numberofrecs,
-		offset:parseInt($(this).attr("data-index"))*2
+		offset:parseInt($(this).attr("data-index"))*2,
+		jwt_token:localStorage['ooh-jwt-token']
 	}
 	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
 	kumulos_init.call('viewjobsbyuser',post_data,function(res){

@@ -20,6 +20,8 @@
 	<link rel="stylesheet" type="text/css" href="css/button.css">
 	<link rel="stylesheet" type="text/css" href="css/jobs.css">
 	<link rel="stylesheet" type="text/css" href="css/signin.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	
 	
 </head>
 <body>
@@ -58,7 +60,7 @@
 							<div class="dropdown">
 								<div class="profile-dropdown" data-toggle="dropdown">
 									<div class="profile-desc">
-										<h5>Bala Subramani</h5>
+										<h5>Admin</h5>
 									</div>
 									<img src="images/dropdown.png" class="dropdown-img">
 								</div>
@@ -84,8 +86,8 @@
 			<div id="sidebar">
 				<div class="sidebar-list text-left">
 					<ul class="list-unstyled">
-						<li class="active">
-							<a href="index.html">
+						<li>
+							<a href="inspection-landing.html">
 								<img src="images/sidebar/inspection.png" alt="home">
 								<label>inspection</label>
 							</a>
@@ -97,12 +99,12 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a href="maps_view.html">
 								<img src="images/sidebar/maps.png" alt="contact">
 								<label>Maps View</label>
 							</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="user-details.html">
 								<img src="images/sidebar/user.png" alt="profile">
 								<label>Users</label>
@@ -140,8 +142,21 @@
 					<!-- Jobs in progress -->
 					<div id="confirm-section">
 						<div class="booking-details">
-							<div class="b-header">
-								<h5>Jobs In Progress</h5>
+							<div class="dd-data">
+								<div class="view-data">
+									<h5>Jobs In Progress</h5>
+								</div>
+								<div class="input-group pull-right">
+									<input type="text" class="form-control" id="search-area" placeholder="Search by name / OISA Data">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button" id="search-job-by-name">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+										<button class="btn btn-default" type="button" id="clear-search">
+											<i class="fa fa-times" aria-hidden="true"></i>
+										</button>
+									</span>
+								</div>
 							</div>
 							<table class="table" data-type="WIP">
 								<thead>
@@ -169,8 +184,21 @@
 					<!-- completed jobs -->
 					<div id="confirm-section">
 						<div class="booking-details">
-							<div class="b-header">
-								<h5>View Completed Jobs</h5>
+							<div class="dd-data">
+								<div class="view-data">
+									<h5>View Completed Jobs</h5>
+								</div>
+								<div class="input-group pull-right">
+									<input type="text" class="form-control" id="search-area" placeholder="Search by name / OISA Data">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button" id="search-job-by-name">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+										<button class="btn btn-default" type="button" id="clear-search">
+											<i class="fa fa-times" aria-hidden="true"></i>
+										</button>
+									</span>
+								</div>
 							</div>
 							<table class="table" data-type="completed">
 								<thead>
@@ -204,8 +232,21 @@
 					<!-- canceled jobs -->
 					<div id="confirm-section">
 						<div class="booking-details">
-							<div class="b-header">
-								<h5>View canceled Jobs</h5>
+							<div class="dd-data">
+								<div class="view-data">
+								<h5>View Canceled Jobs</h5>
+								</div>
+								<div class="input-group pull-right">
+									<input type="text" class="form-control" id="search-area" placeholder="Search by name / OISA Data">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button" id="search-job-by-name">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+										<button class="btn btn-default" type="button" id="clear-search">
+											<i class="fa fa-times" aria-hidden="true"></i>
+										</button>
+									</span>
+								</div>
 							</div>
 							<table class="table" data-type="canceled">
 								<thead>
@@ -267,41 +308,41 @@
 					</div>
 				</div>
 			</td>
-			</td>
-			<td><%=jobid%></td>
-			<td><%=siteId%></td>
-			<td><%=suburb%></td>
-			<td><%=location%> </td>
-			<td><%=completeddate%></td>
-		</tr>
-	</script>
-	<script type="text/template" class="job-template" data-type="canceled">
-	</script>
-		<script type="text/template" id="pagination-template">
-		<li class="first-element" data-action="first"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-		<li class="previous-element"><a href="#" aria-label="Previous" data-action="previous"><span aria-hidden="true">«</span></a></li>
-		<input class="hide" type="text" readonly="readonly" data-max-page="<%=items.length%>"/>
-		<%_.each(items, function(item) {%>
-		<%if(item.index ==0){%>
-		<li class="pagination-element active" data-index="<%=item.index%>">
+		</td>
+		<td><%=jobid%></td>
+		<td><%=siteId%></td>
+		<td><%=suburb%></td>
+		<td><%=location%> </td>
+		<td><%=completeddate%></td>
+	</tr>
+</script>
+<script type="text/template" class="job-template" data-type="canceled">
+</script>
+<script type="text/template" id="pagination-template">
+	<li class="first-element" data-action="first"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+	<li class="previous-element"><a href="#" aria-label="Previous" data-action="previous"><span aria-hidden="true">«</span></a></li>
+	<input class="hide" type="text" readonly="readonly" data-max-page="<%=items.length%>"/>
+	<%_.each(items, function(item) {%>
+	<%if(item.index ==0){%>
+	<li class="pagination-element active" data-index="<%=item.index%>">
+		<%}else{%>
+		<%if(item.is_hidden){%>
+		<li class="pagination-element hide" data-index="<%=item.index%>">
 			<%}else{%>
-			<%if(item.is_hidden){%>
-			<li class="pagination-element hide" data-index="<%=item.index%>">
-				<%}else{%>
-				<li class="pagination-element" data-index="<%=item.index%>">
-					<%}}%>
-					<a href="#"><%=item.label%></a>
-				</li>
-				<%})%>
-				<li class="next-element"><a href="#" aria-label="Next" data-action="next"><span aria-hidden="true">»</span></a></li>
-				<li class="last-element" data-action="last"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
-			</script>
-	<script src="js/vendor/jquery-3.1.0.min.js"></script>
-	<script src="js/vendor/bootstrap.min.js"></script>
-	<script src="js/scripts.js"></script>
-	<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
-	<script src="js/vendor/underscore.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="js/api_scripts/user_details.js"></script>
-</body>
-</html>
+			<li class="pagination-element" data-index="<%=item.index%>">
+				<%}}%>
+				<a href="#"><%=item.label%></a>
+			</li>
+			<%})%>
+			<li class="next-element"><a href="#" aria-label="Next" data-action="next"><span aria-hidden="true">»</span></a></li>
+			<li class="last-element" data-action="last"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+		</script>
+		<script src="js/vendor/jquery-3.1.0.min.js"></script>
+		<script src="js/vendor/bootstrap.min.js"></script>
+		<script src="js/scripts.js"></script>
+		<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
+		<script src="js/vendor/underscore.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+		<script src="js/api_scripts/user_details.js"></script>
+	</body>
+	</html>

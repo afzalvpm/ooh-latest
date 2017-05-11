@@ -82,6 +82,7 @@ ul,li{
 	box-shadow: none;
 	border:1px solid #dddddd;
 	border-radius: 0px;
+	height: 34px;
 }
 .dd-data .input-group .input-group-btn btn{
 	border:1px solid #dddddd;
@@ -106,7 +107,16 @@ ul,li{
 	margin-bottom: 0px;
 }
 .Form-section .btn-save{
-    clear: both !important;
+	clear: both !important;
+}
+/*assigne*/
+.assigne-no{
+	display: block;
+}
+.Change_assigne{
+	font-size: 12px;
+	text-decoration: underline;
+	color: #3b5bb2;
 }
 /*responsive css*/
 @media screen and (max-width: 991px) {

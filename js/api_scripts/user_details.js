@@ -46,7 +46,7 @@ function load_user_jobs(email,name,type,offset){
 	}
 }
 
-$(function(){ 
+$(function(){
 	load_user_jobs("aru.raval@gmail.com","Arundhati","WIP",0)
 	load_user_jobs("aru.raval@gmail.com","Arundhati","completed",0)
 	load_user_jobs("aru.raval@gmail.com","Arundhati","canceled",0)

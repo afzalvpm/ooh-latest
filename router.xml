@@ -33,7 +33,7 @@
       <KeyPrefixEquals>home</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyWith>index.html</ReplaceKeyWith>
+      <ReplaceKeyWith>inspection-landing.html</ReplaceKeyWith>
     </Redirect>
   </RoutingRule>
   <RoutingRule>

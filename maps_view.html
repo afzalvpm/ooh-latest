@@ -17,8 +17,18 @@
 	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
 	<link rel="stylesheet" type="text/css" href="css/notification.css">
 	<link rel="stylesheet" type="text/css" href="css/inspection.css">
-	<link rel="stylesheet" type="text/css" href="css/c3.css">
-
+	<link rel="stylesheet" type="text/css" href="css/button.css">
+	<link rel="stylesheet" type="text/css" href="css/jobs.css">
+	<link rel="stylesheet" type="text/css" href="css/signin.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<style type="text/css">
+		#map {
+			height: 100%;
+			overflow: static !important;
+		}
+	</style>
+	
+	
 </head>
 <body>
 	<div class="overflow-scroll">
@@ -82,26 +92,26 @@
 			<div id="sidebar">
 				<div class="sidebar-list text-left">
 					<ul class="list-unstyled">
-						<li class="active">
-							<a href="/new-inspection/">
+						<li>
+							<a href="inspection-landing.html">
 								<img src="images/sidebar/inspection.png" alt="home">
 								<label>inspection</label>
 							</a>
 						</li>
 						<li>
-							<a href="/jobs-landing/">
+							<a href="jobs-landing.html">
 								<img src="images/sidebar/jobs.png" alt="chat">
 								<label>jobs</label>
 							</a>
 						</li>
-						<li>
-							<a href="">
+						<li class="active">
+							<a href="maps_view.html">
 								<img src="images/sidebar/maps.png" alt="contact">
 								<label>Maps View</label>
 							</a>
 						</li>
 						<li>
-							<a href="/user-details/">
+							<a href="user-details.html">
 								<img src="images/sidebar/user.png" alt="profile">
 								<label>Users</label>
 							</a>
@@ -111,164 +121,21 @@
 			</div>
 			<!-- main wrapper -->
 			<div class="container-fluid" id="wrapper-container">
-				<div class="col-md-12 inspection-list">
-					<div class="col-md-4 mpad0 text-center">
-						<div class="inspection-data">
-							<a href="new-inspection.html">
-								<img src="images/addnew.png" alt="">
-								<label>Add a new inspection</label>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-4 mpad0 text-center">
-						<div class="inspection-data">
-							<a href="completed_inspection.html">
-								<img src="images/progress.png" alt="">
-								<label>View Completed inspection</label>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-4 mpad0 text-center">
-						<div class="inspection-data">
-							<a href="progress_inspection.html">
-								<img src="images/completed.png" alt="">
-								<label>Inspection in Progress</label>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!--subscribe chart-->
-				<div class="col-md-12 mpad0">
-					<div class="graph-data">
-						<h5>Subscribers</h5>
-						<div id="subscribe-chart"></div>
-					</div>
-				</div>
-				<!--Job notification chart-->
-				<div class="col-md-12 mpad0">
-					<div class="graph-data">
-						<h5>Job notification chart</h5>
-						<div id="job-chart"></div>
-					</div>
-				</div>
+
+				
 			</div>
+
 		</section>
+		<div id="map"></div>
+		
 	</div>
 	<script src="js/vendor/jquery-3.1.0.min.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
-	<script src="js/vendor/d3.min.js"></script>
-	<script src="js/vendor/c3.js"></script>
 	<script src="js/scripts.js"></script>
-	<script>
-		// subscribe chart
-		var splinechart = c3.generate({
-			size: {
-				height: 270,
-			},
-			bindto: '#subscribe-chart',
-
-			padding: {
-				top: 10,
-				right: 15,
-				bottom: 0,
-				left: 40,
-			},
-			data: {
-				columns: [
-				['TotalSubscribe', 300, 350, 300, 210, 110, 90,200],
-				['Ios', 130, 100, 140, 200, 150, 50,300],
-				['android', 130, 120, 130, 270, 160, 80,200],
-				],
-				types: {
-					totalSubscribe: 'spline',
-					ios: 'spline',
-					android: 'spline',
-				},
-				colors: {
-					totalSubscribe: '#5cd293',
-					ios: '#1a78dd',
-					android: '#1a78dd',
-				},
-
-			},
-			tooltip: {
-				show: false
-			},
-			point: {
-				show: false
-			},
-			axis: {
-				x: {
-					type: 'category',
-					categories: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
-					padding: {
-						left: -0.5,
-						right: -0.5,
-					}
-				},
-				y: {
-					padding: {bottom: 0},
-					min: 0,
-					tick: {
-						format: d3.format("s")
-					}
-				},
-			}
-		});
-
-	// job notification chart
-	var splinechart = c3.generate({
-		size: {
-			height: 270,
-		},
-		bindto: '#job-chart',
-
-		padding: {
-			top: 10,
-			right: 15,
-			bottom: 0,
-			left: 40,
-		},
-		data: {
-			columns: [
-			['OpenedNotification', 300, 350, 300, 0, 0, 0,200],
-			['SentNotification', 130, 100, 140, 200, 150, 50,300],
-
-
-			],
-			types: {
-				OpenedNotification: 'area-spline',
-				SentNotification: 'area-spline',
-			},
-			colors: {
-				OpenedNotification: '#5cd293',
-				SentNotification: '#1a78dd',
-			},
-		},
-		tooltip: {
-			show: false
-		},
-		point: {
-			show: false
-		},
-		axis: {
-			x: {
-				type: 'category',
-				categories: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
-				padding: {
-					left: -0.5,
-					right: -0.5,
-				}
-			},
-			y: {
-				padding: {bottom: 0},
-				min: 0,
-				tick: {
-					format: d3.format("s")
-				}
-			},
-		}
-	});
-</script>
+	<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
+	<script src="js/vendor/underscore.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7lEhWOW6t8D5yWL0FwnL_Wa7QgyVNe7o&callback=initMap"></script>
+	<script src="js/api_scripts/map_view.js"></script>
 </body>
 </html>
