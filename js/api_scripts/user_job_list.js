@@ -1,3 +1,76 @@
+function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+    //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+    
+    var CSV = '';
+    //Set Report title in first row or line
+    
+    // CSV += ReportTitle + '\r\n\n';
+
+    //This condition will generate the Label/Header
+    if (ShowLabel) {
+    	var row = "";
+
+        //This loop will extract the label from 1st index of on array
+        for (var index in arrData[0]) {
+
+            //Now convert each value to string and comma-seprated
+            row += index + ',';
+        }
+
+        row = row.slice(0, -1);
+        
+        //append Label row with line break
+        CSV += row + '\r\n';
+    }
+    
+    //1st loop is to extract each row
+    for (var i = 0; i < arrData.length; i++) {
+    	var row = "";
+
+        //2nd loop will extract each column and convert it in string comma-seprated
+        for (var index in arrData[i]) {
+        	row += '"' + arrData[i][index] + '",';
+        }
+
+        row.slice(0, row.length - 1);
+        
+        //add a line break after each row
+        CSV += row + '\r\n';
+    }
+
+    if (CSV == '') {        
+    	alert("Invalid data");
+    	return;
+    }   
+    
+    //Generate a file name
+    var fileName = "ooh_job_report";
+    //this will remove the blank-spaces from the title and replace it with an underscore
+    fileName += ReportTitle.replace(/ /g,"_");   
+    
+    //Initialize file format you want csv or xls
+    var uri = 'data:text/xls;charset=utf-8,' + escape(CSV);
+    
+    // Now the little tricky part.
+    // you can use either>> window.open(uri);
+    // but this will not work in some browsers
+    // or you will not get the correct file extension    
+    
+    //this trick will generate a temp <a /> tag
+    var link = document.createElement("a");    
+    link.href = uri;
+    
+    //set the visibility hidden so it will not effect on your web-layout
+    link.style = "visibility:hidden";
+    link.download = fileName + ".xls";
+    
+    //this part will append the anchor tag and remove it after automatic click
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 function load_user_jobs(){
 	var numberofrecs = 9;
 	var max_pagination_elements = 5;
@@ -163,71 +236,38 @@ $(function(){
 	load_user_jobs();
 })
 
-$(".download-data").on("click",function(){
-	var checked_jobs = $("#job-list tr input:checked");
-	var columns = ["INSPECTION ID", "JOB ID","SIN","JOB TYPE", "Completed date & time"];
-	var rows = []
-	var inspections = []
-	var data = {
-		client:'Sample',
-		campaign:'Sample',
-		condition_check:'Sample',
-		data:[{panel_id:'2',location:'valapuram'},{panel_id:'3',location:'Malappuram'}]
-	}
-	var items = {};
-$(checked_jobs).each(function() {
-    items[$(this).closest(".job-parent").attr('data-inspectionid')] = true; 
-});
+// $(".download-data").on("click",function(){
+// 	var checked_jobs = $("#job-list tr input:checked");
+// 	var columns = ["INSPECTION ID", "JOB ID","SIN","JOB TYPE", "Completed date & time"];
+// 	var rows = []
+	
+// 	if(checked_jobs.length){
+// 		var rows = [
+// 		// [1, "Shaw", "Tanzania", ...],
+// 		// [2, "Nelson", "Kazakhstan", ...],
+// 		// [3, "Garcia", "Madagascar", ...],
+// 		// ...
+// 		];
+// 		for(i=0;i<checked_jobs.length;i++){
+// 			var element =[];
+// 			var job = $(checked_jobs[i]).closest("tr")
+// 			debugger
+// 			var job_elements = job.find(".job-element")
+// 			for(j=0;j<job_elements.length;j++){
+// 				element.push($(job_elements[j]).text())
+// 			}
+// 			rows.push(element)
+// 		}
+// 		console.log(rows)
+// 		var doc = new jsPDF();
+// 		doc.autoTable(columns, rows);
+// 		doc.autoTable(columns, rows);
+// 		doc.save('table.pdf');
 
-var result = new Array();
-	var data = {}
+// 	}
 
-for(var i in items)
-{
-	var element_data = {
-		inspection_id:i
-	}
-	element_data['data'] = []
-	var job_list = $(".job-parent[data-inspectionid='"+i+"']").find("input:checked")
-	for(i=0;i<job_list.length;i++){
-		var data = {}
-		data['JOB_ID'] = $(job_list[i]).closest(".job-parent").find(".job-element[data-type='JOB ID']").text()
-		data['SIN'] = $(job_list[i]).closest(".job-parent").find(".job-element[data-type='SIN']").text()
-		data['JOB_TYPE'] = $(job_list[i]).closest(".job-parent").find(".job-element[data-type='JOB TYPE']").text()
-		data['completed_date'] = $(job_list[i]).closest(".job-parent").find(".job-element[data-type='Completed date & time']").text()
-		element_data['data'].push(data)
-	}
-	// element_data['data'].push(data)
-	console.log(element_data)
-    // result.push(i);
-
-}
-
-		var doc = new jsPDF('p','pt', 'a4', true);
-		inc = 15;
-		doc.rect(10, inc, 24, 8);
-		doc.rect(34, inc, 111, 8);
-		doc.rect(145, inc, 15, 8);
-		doc.rect(160, inc, 20, 8);
-		doc.rect(180, inc, 23, 8);
-
-		doc.addPage(focus);
-		doc.setLineWidth(0.5);
-		inc = 15;
-		height = 18;
-
-
-		doc.rect(10, inc, 24, 8);
-		doc.text("afxal", 11, height);
-		console.log(inspections)
-		console.log(rows)
-		var doc = new jsPDF();
-		doc.autoTable(columns, rows);
-		doc.autoTable(columns, rows);
-		doc.save('table.pdf');
-
-	// }
-})
+// 	// }
+// })
 $("#select-all-jobs").on("change",function(e){
 	if($(this).is(':checked')){
 		$("#job-list").find(".checkbox input").prop("checked",true)
@@ -274,5 +314,97 @@ $(".sorty-by").on("click",function(){
 		$('#job-list tr').sortElements(function(a, b){
 			return $(a).find(".coloumn").text() > $(b).find(".coloumn").text() ? start : end;
 		});
+	}
+})
+
+
+
+// 
+$(".download-data").on("click",function(){
+	var is_checked_all = $("#select-all-jobs").is(":checked")
+	alert(is_checked_all)
+	if(is_checked_all){
+		var csv_data = []
+		var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
+		kumulos_init.call('cmptdjobsreport',{jwt_token:localStorage['ooh-jwt-token']},function(res){
+			console.log(res)
+			var zip = new JSZip();
+			var img = zip.folder("images");
+			for(i=0;i<res.length;i++){
+				var csv_element = {
+					'Suburb': res[i].suburb,
+					'State':res[i].siteId,
+					'compaign name':res[i].campaign,
+					'Advertiser':res[i].client,
+					'Agency primary':res[i].contractor,
+					'start date':moment.utc(parseInt(res[i].dateofInspection)).format("DD-MM-YYYY HH:mm A"),
+					'end date':moment.utc(parseInt(res[i]['endDate'])).format("DD-MM-YYYY HH:mm A"),
+					'app job id':res[i].jobID,
+					'job accepted by':res[i].name,
+					'App job Geo Code latitude':res[i].applat,
+					'App job Geo Code longitude':res[i].applong,
+					'App Job Suburb':res[i].appsubrub,
+					'App Job Address':res[i].appaddress,
+					'App Job Post Code':res[i].zipCode,
+					'App job Inspection Type':res[i].jobtype,
+					'App job Condition GOOD':true,
+					'App job Condition PROXIMITY':res[i].proximityCheck,
+					'App job Condition SHARE OF VOICE':res[i].shareofVoiceCheck,
+					'App job NOTES':res[i].appnotes,
+					'Image url':res[i].imageurl
+				}
+				// zip.file(i+'img.jpg',res[i].imageurl);
+				// zip.file()
+				// img.file("smile.gif", imgData, {base64: true});
+				// JSZipUtils.getBinaryContent(res[i].imageurl, function(err, data) {
+				// 	if(err) {
+				// 		throw err; 
+				// 	}
+
+				// 	zip.loadAsync(data).then(function () {
+				// 	});
+				// });
+				csv_data.push(csv_element)
+			}
+			debugger
+// 			zip.then(function(content) {
+//     // see FileSaver.js
+//     saveAs(content, "example.zip");
+// });
+				// console.log(csv_element)
+				JSONToCSVConvertor(csv_data, "", true)
+
+
+
+			})
+	}else{
+		var selected_checkboxes = $("#job-list").find("input:checked")
+		for(i=0;i<selected_checkboxes.length;i++){
+			var loop_element = $(selected_checkboxes[i]).closest(".job-element");
+			var csv_element = {
+					'Suburb': $(selected_checkboxes[i]),
+					'State':$(selected_checkboxes[i]),
+					'compaign name':$(selected_checkboxes[i]),
+					'Advertiser':$(selected_checkboxes[i]),
+					'Agency primary':$(selected_checkboxes[i]),
+					'start date':moment.utc(parseInt($().dateofInspection)).format("DD-MM-YYYY HH:mm A"),
+					'end date':moment.utc(parseInt($()['endDate'])).format("DD-MM-YYYY HH:mm A"),
+					'app job id':$(selected_checkboxes[i]),
+					'job accepted by':$(selected_checkboxes[i]),
+					'App job Geo Code latitude':$(selected_checkboxes[i]),
+					'App job Geo Code longitude':$(selected_checkboxes[i]),
+					'App Job Suburb':$(selected_checkboxes[i]),
+					'App Job Address':$(selected_checkboxes[i]),
+					'App Job Post Code':$(selected_checkboxes[i]),
+					'App job Inspection Type':$(selected_checkboxes[i]),
+					'App job Condition GOOD':true,
+					'App job Condition PROXIMITY':$(selected_checkboxes[i]).proximityCheck,
+					'App job Condition SHARE OF VOICE':$(selected_checkboxes[i]).shareofVoiceCheck,
+					'App job NOTES':$(selected_checkboxes[i]).appnotes,
+					'Image url':$(selected_checkboxes[i]).imageurl
+				}
+
+		}
+		console.log(selected_checkboxes)
 	}
 })

@@ -28,20 +28,18 @@ $('#signin-form').validate({
 	kumulos_init.call('adminsignin',post_data,function(res){
 		console.log(res)
 		if(res[0].status == "success"){
-							// success
-		debugger
-							localStorage['ooh-jwt-token'] = res[0].token
-							$("#signin-form .error-display").text("Successfully logged in")
-							setTimeout(function(){
-								window.location= "/new-inspection/"
-							},1000)
-						}else{
-							$("#signin-form .error-display").text(res[0])
-							setTimeout(function(){
-								$("#signin-form .error-display").text("")
-							},4000)
-						}
-					});
+			localStorage['ooh-jwt-token'] = res[0].token
+			$("#signin-form .error-display").text("Successfully logged in")
+			setTimeout(function(){
+				window.location= "/new-inspection/"
+			},1000)
+		}else{
+			$("#signin-form .error-display").text(res)
+			setTimeout(function(){
+				$("#signin-form .error-display").text("")
+			},4000)
+		}
+	});
 }
 });
 $('#signin-form').submit(function(e){

@@ -9,6 +9,7 @@ function load_user_jobs(){
 	if(typeof(localStorage['ooh-jwt-token'])!=undefined){
 		var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
 		kumulos_init.call('viewjobsbyuser',post_data,function(res){
+			console.log(res)
 			$("#job-list").html("")
 			var template = _.template($('#job-template').html());
 			var job_array = res[0]['data']
@@ -128,5 +129,7 @@ $(document).on("click",".pagination .next-element",function(e){
 })
 
 $(function(){ 
-	load_user_jobs()
+	load_user_jobs();
 });
+
+

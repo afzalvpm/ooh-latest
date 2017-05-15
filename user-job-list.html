@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="css/signin.css">
 	<link rel="stylesheet" type="text/css" href="css/jobs.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.2.5/css/tableexport.min.css">
 
 </head>
 <body>
@@ -136,7 +137,7 @@
 								</span>
 							</div>
 						</div>
-						<table class="table">
+						<table class="table" id="table">
 							<thead>
 								<tr>
 									<th>
@@ -219,6 +220,25 @@
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.0/jspdf.plugin.autotable.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 			<script src="js/vendor/sortElements.js"></script>
+			<script src="js/FileSaver.min.js"></script>
+			
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.3.5/js/tableexport.min.js"></script>
 			<script src="js/api_scripts/user_job_list.js"></script>
-		</body>
-		</html>
+			<script src="js/api_scripts/user_data.js"></script>
+			<script type="text/javascript">
+// 				$(".table").tableExport({
+// 					headings: true,
+// 					footers: true, 
+// 					formats: ["xls", "csv", "txt"],
+// 					fileName: "id",
+// 					bootstrap: true,
+// 					position: "bottom",
+//     ignoreRows: null,                  // (Number, Number[]), row indices to exclude from the exported file(s)
+//     ignoreCols: null,                  // (Number, Number[]), column indices to exclude from the exported file(s)
+//     ignoreCSS: ".tableexport-ignore",  // (selector, selector[]), selector(s) to exclude from the exported file(s)
+//     emptyCSS: ".tableexport-empty",    // (selector, selector[]), selector(s) to replace cells with an empty string in the exported file(s)
+//     trimWhitespace: false              // (Boolean), remove all leading/trailing newlines, spaces, and tabs from cell text in the exported file(s)
+// });
+</script>
+</body>
+</html>

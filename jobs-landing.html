@@ -100,7 +100,8 @@
 							</a>
 						</li>
 						<li>
-							<a href="">
+							
+							<a href="maps_view.html">
 								<img src="images/sidebar/maps.png" alt="contact">
 								<label>Maps View</label>
 							</a>
@@ -119,23 +120,23 @@
 				<div class="col-md-12 inspection-list jobs-tab">
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data active">
-							<a href="/jobs-landing/">
-								<img src="images/addnew.png" alt="">
-								<label>View Jobs by User</label>
+							<a href="jobs-landing.html">
+								<img src="images/job1.png" alt="">
+								<label>View Active Jobs</label>
 							</div>
 						</a>
 					</div>
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data">
-							<a href="/jobs-confirmed/">
-								<img src="images/progress.png" alt="">
+							<a href="jobs-confirmed.html">
+								<img src="images/job2.png" alt="">
 								<label>View Completed Jobs</label>
 							</a>
 						</div>
 					</div>
 					<div class="col-md-4 mpad0 text-center">
 						<div class="inspection-data">
-							<a href="/jobs-progress/">
+							<a href="jobs-progress.html">
 								<img src="images/job3.png" alt="">
 								<label>Jobs in Progress</label>
 							</a>
@@ -208,9 +209,8 @@
 					<span><%=emailId%></span>
 					<label>Completed Jobs : <%=count%></label>
 					<label class="assigne-no">
-						No of Assigne: <%=count%>
-
-						<span class="Change_assigne" data-toggle="modal" data-target="#myModal">( Change Assigne )</span>
+						No of Assigne: <span class="assignee-count"><%=count%></span>
+						<span class="Change_assigne" data-toggle="modal" data-target="#myModal">( Add Assigne )</span>
 					</label>
 				</div>
 			</div>
@@ -240,12 +240,15 @@
 			<script src="js/vendor/jquery-3.1.0.min.js"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>
 			<script src="js/vendor/selectize.js"></script>
-<script src="js/create-announcement.js"></script>
 			<script src="js/scripts.js"></script>
 			<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
 			<script src="js/vendor/underscore.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 			<script src="js/api_scripts/job-landing.js"></script>
+			<script src="js/create-announcement.js"></script>
+			<script src="js/api_scripts/user_data.js"></script>
+
+			
 		</script>
 
 	</body>
