@@ -120,15 +120,20 @@
 				</div>
 			</div>
 			<!-- main wrapper -->
-			<div class="container-fluid" id="wrapper-container">
+			
 
 				
 			</div>
 
 		</section>
+		<div class="container-fluid" id="wrapper-container">
+				
+	
 		
 	</div>
-	<div id="map" style="position: absolute;width: 100%;"></div>
+	
+<div id="map" style="position: absolute;width: 100%;"></div>
+	<div id="campground_info"></div>
 
 	<script src="js/vendor/jquery-3.1.0.min.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
@@ -136,14 +141,34 @@
 	<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
 	<script src="js/vendor/underscore.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7lEhWOW6t8D5yWL0FwnL_Wa7QgyVNe7o&callback=initMap"></script> -->
-	<script src='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js'></script>
-	<link href='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css' rel='stylesheet' />
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7lEhWOW6t8D5yWL0FwnL_Wa7QgyVNe7o&callback=initMap&sensor=false"></script>
+	<!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js'></script> -->
+	<!-- <link href='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css' rel='stylesheet' /> -->
 	<script src="js/api_scripts/map_view.js"></script>
 	<script src="js/api_scripts/user_data.js"></script>
 	
 	<script>
 
 	</script>
+	<style type="text/css">
+		
+	</style>
+	<div id="buttons">
+  
+  <input type="radio" name="filter" id="show-static" class='chk-btn' value="Static" checked="checked">
+  <label for='shower'>Static</label>
+  
+  <input type="radio" name="filter" id="show-digital" class='chk-btn' value="Digital">
+  <label for='flush'>Digital</label>
+  <br>
+  <style type="text/css">
+  	#buttons{
+  		    left: 268px;
+    top: 116px;
+    position: absolute;
+  	}
+  </style>
+</div>
 </body>
 </html>

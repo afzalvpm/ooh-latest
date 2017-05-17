@@ -110,6 +110,7 @@ messages: {
 submitHandler: function(form) {
    // var job_list = csv_data
    // job_list.shift()
+   $(".loading").removeClass("hide");
    var post_data = {
     client:$(form).find("#client").val(),
     dateofInspection:$(form).find("#inception_date").val(),
@@ -129,12 +130,12 @@ if(typeof(localStorage['ooh-jwt-token'])!=undefined){
     kumulos_init.call('insertdata',{'data':post_data,jwt_token:localStorage['ooh-jwt-token']},function(res){
     console.log(res)
     if(res[0].status=="success"){
-        // window.location="/add-new-jobs/?inspectionid="+res[0].id
+      $(".loading").removeClass("hide");
+        window.location="/add-new-jobs/?inspectionid="+res[0].id
     }
 
 })
 }
-console.log(post_data)
 }
 });
    $('#job_file').change(handleFile);

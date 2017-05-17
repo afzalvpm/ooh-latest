@@ -8,7 +8,7 @@ function load_user_jobs(){
 	}
 	if(typeof(localStorage['ooh-jwt-token'])!=undefined){
 		var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
-		kumulos_init.call('viewjobsbyuser',post_data,function(res){
+		kumulos_init.call('viewactivejobs',post_data,function(res){
 			console.log(res)
 			$("#job-list").html("")
 			var template = _.template($('#job-template').html());
@@ -51,7 +51,7 @@ $(document).on("click",".pagination-element",function(){
 		jwt_token:localStorage['ooh-jwt-token']
 	}
 	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
-	kumulos_init.call('viewjobsbyuser',post_data,function(res){
+	kumulos_init.call('viewactivejobs',post_data,function(res){
 		$("#job-list").html("")
 		var template = _.template($('#job-template').html());
 		var job_array = res[0]['data']
