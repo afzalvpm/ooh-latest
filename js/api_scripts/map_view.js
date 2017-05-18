@@ -59,6 +59,9 @@ function init(type) {
                     title: res[i].siteAddress,
                     position: new google.maps.LatLng(res[i].latitude, res[i].longitude),
                 });
+       marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
        // locations.push(location_element)
 
    }
