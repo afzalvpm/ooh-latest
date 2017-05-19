@@ -26,9 +26,22 @@
 			height: 100%;
 			overflow: static !important;
 		}
+		#buttons{
+			left: 268px;
+			top: 116px;
+			position: absolute;
+			z-index: 9999;
+			background-color: rgba(0, 0, 0, 0.68);
+			padding: 10px 20px;
+			color: #fff;
+			font-family: 'LatoRegular';
+			font-size: 14px;
+		}
+		#buttons label{
+			margin-right: 20px !important;
+			margin-top: 4px;
+		}
 	</style>
-	
-	
 </head>
 <body>
 	<div class="overflow-scroll">
@@ -119,21 +132,15 @@
 					</ul>
 				</div>
 			</div>
-			<!-- main wrapper -->
-			
+		</div>
 
-				
-			</div>
-
-		</section>
-		<div class="container-fluid" id="wrapper-container">
-				
-	
-		
+	</section>
+	<div class="container-fluid" id="wrapper-container">
+		<div id="map" style="position: absolute;width: 100%;"></div>
+		<div id="campground_info"></div>
 	</div>
 	
-<div id="map" style="position: absolute;width: 100%;"></div>
-	<div id="campground_info"></div>
+
 
 	<script src="js/vendor/jquery-3.1.0.min.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
@@ -148,27 +155,15 @@
 	<script src="js/api_scripts/map_view.js"></script>
 	<script src="js/api_scripts/user_data.js"></script>
 	
-	<script>
-
-	</script>
-	<style type="text/css">
-		
-	</style>
 	<div id="buttons">
-  
-  <input type="radio" name="filter" id="show-static" class='chk-btn' value="Static" checked="checked">
-  <label for='shower'>Static</label>
-  
-  <input type="radio" name="filter" id="show-digital" class='chk-btn' value="Digital">
-  <label for='flush'>Digital</label>
-  <br>
-  <style type="text/css">
-  	#buttons{
-  		    left: 268px;
-    top: 116px;
-    position: absolute;
-  	}
-  </style>
-</div>
+		<label for='shower'>
+			<input type="radio" name="filter" id="show-static" class='chk-btn' value="Static" checked="checked">
+			Static
+		</label>
+		<label for='flush'>
+			<input type="radio" name="filter" id="show-digital" class='chk-btn' value="Digital">
+			Digital
+		</label>
+	</div>
 </body>
 </html>

@@ -161,18 +161,18 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th>
+									<!-- <th>
 										<div class="checkbox">
 											<label>
 												<input type="checkbox" id="select-all-jobs">
 											</label>
 										</div>
-									</th>
-									<th>Full Name</th>
-									<th>JOB ID</th>
-									<th>SIN</th>
+									</th> -->
+									<th>Inspetion ID</th>
+									<th>Start date</th>
 									<th>TYPE</th>
-									<th>Overall Status</th>
+									<th>Campaign</th>
+									<th>Contractor</th>
 									<th>Completed date & time</th>
 								</tr>
 							</thead>
@@ -192,18 +192,18 @@
 	</div>
 	<script type="text/template" id="job-template">
 		<tr>
-			<td>
+			<!-- <td>
 				<div class="checkbox">
 					<label>
 						<input type="checkbox">
 					</label>
 				</div>
-			</td>
-			<td><%=name%></td>
-			<td><%=jobid%></td>
-			<td><%=siteId%></td>
-			<td><%=jobtype%></td>
-			<td><%=overallstatus%> </td>
+			</td> -->
+			<td><%=inspection_DetailID%></td>
+			<td><%=start_date%></td>
+			<td><%=type%></td>
+			<td><%=campaign%></td>
+			<td><%=contractor%> </td>
 			<td><%=completeddate%></td>
 		</tr>
 	</script>
@@ -232,7 +232,7 @@
 			<script src="js/vendor/underscore.min.js"></script>
 			<script type="text/javascript" src="http://c3173.r73.cf2.rackcdn.com/Kumulos.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-			<script src="js/api_scripts/inspection-confirmed.js"></script>
+			<script src="js/api_scripts/inspection-completed.js"></script>
 			<script src="js/api_scripts/user_data.js"></script>
 			
 		</body>

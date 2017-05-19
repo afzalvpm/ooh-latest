@@ -189,49 +189,111 @@ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
 $(".download-data").on("click",function(){
 	var is_checked_all = $("#select-all-jobs").is(":checked")
 	var is_selected = $(".job-element").find("input[type='checkbox']").is(":checked")
-	alert(is_checked_all)
-	var csv_data = []
+	var pdf_data = []
 	var kumulos_init= Kumulos.initWithAPIKeyAndSecretKey('05a0cda2-401b-4a58-9336-69cc54452eba', 'EKGTFyZG5/RQe7QuRridgjc0K8TIaKX3wLxC');
 	kumulos_init.call('cmptdjobsreport',{jwt_token:localStorage['ooh-jwt-token']},function(res){
 		console.log(res)
+		var coloumns_list = {columnStyles: {
+    // suburb: {columnWidth: 100},
+    // siteId: {columnWidth: 40},
+    // client: {columnWidth: 40},
+    // contractor: {columnWidth: 40},
+    // start_date: {columnWidth: 40},
+    // end_date: {columnWidth: 40},
+
+    // jobID: {columnWidth: 280},
+    // name: {columnWidth: 280},
+    // applat: {columnWidth: 280},
+    // applong: {columnWidth: 180},
+    // appsubrub: {columnWidth: 280},
+    // appaddress: {columnWidth: 280},
+    // zipCode: {columnWidth: 280},
+    // jobtype: {columnWidth: 280},
+    // proximityCheck: {columnWidth: 280},
+    // shareofVoiceCheck: {columnWidth: 280},
+    // appnotes: {columnWidth: 180},
+    // 17: {columnWidth: 280},
+    // 18: {columnWidth: 280},
+    // 19: {columnWidth: 280},
+    // 20: {columnWidth: 280},
+    // 21: {columnWidth: 180},
+    // etc
+}}
+		var columns = [{
+				title:"Suburb",key:"suburb"},
+				{title:"State",key:"siteId"},
+				{title:"Advertiser",key:"client"},
+				{title:"Agency primary",key:"contractor"},
+				{title:"start date",key:"start_date"},
+				{title:"end date",key:"end_date"},
+				{title:"app job id",key:"jobID"},
+				{title:"job accepted by",key:"name"},
+				{title:"App job Geo Code latitude",key:"applat"},
+				{title:"App job Geo Code longitude",key:"applong"},
+				{title:"App Job Suburb",key:"appsubrub"},
+				{title:"App Job Post Code",key:"zipCode"},
+				{title:"App job Inspection Type",key:"jobtype"},
+				{title:"App job Condition PROXIMITY",key:"proximityCheck"},
+				{title:"App job Condition SHARE OF VOICE",key:"shareofVoiceCheck"},
+				{title:"App job NOTES",key:"appnotes"},
+				{title:"Image url",key:"imageurl"},
+				{title:"App job Condition GOOD",key:"is_good"},
+				{title:"App job Condition NOT POSTED",key:"is_not_posted"},
+				{title:"App job Condition NO PANEL",key:"is_not_panel"},
+				{title:"App job Condition WRONG PANEL SIDE ",key:"is_wrong_panel_side"			
+
+			}]
 		for(i=0;i<res.length;i++){
-			var csv_element = {
-				'Suburb': res[i].suburb,
-				'State':res[i].siteId,
-				'compaign name':res[i].campaign,
-				'Advertiser':res[i].client,
-				'Agency primary':res[i].contractor,
-				'start date':moment.utc(parseInt(res[i].dateofInspection)).format("DD-MM-YYYY HH:mm A"),
-				'end date':moment.utc(parseInt(res[i]['endDate'])).format("DD-MM-YYYY HH:mm A"),
-				'app job id':res[i].jobID,
-				'job accepted by':res[i].name,
-				'App job Geo Code latitude':res[i].applat,
-				'App job Geo Code longitude':res[i].applong,
-				'App Job Suburb':res[i].appsubrub,
-				'App Job Address':res[i].appaddress,
-				'App Job Post Code':res[i].zipCode,
-				'App job Inspection Type':res[i].jobtype,
-				'App job Condition GOOD':true,
-				'App job Condition NOT POSTED':false,
-				'App job Condition NO PANEL ':true,
-				'App job Condition WRONG PANEL SIDE ':false,
-				'App job Condition PROXIMITY':res[i].proximityCheck,
-				'App job Condition SHARE OF VOICE':res[i].shareofVoiceCheck,
-				'App job NOTES':res[i].appnotes,
-				'Image url':res[i].imageurl
-			}
+			var pdf_element = res[i];
+			pdf_element['start_date'] = moment.utc(parseInt(res[i].dateofInspection)).format("DD-MM-YYYY HH:mm A")
+			pdf_element['end_date'] = moment.utc(parseInt(res[i].endDate)).format("DD-MM-YYYY HH:mm A")
+			pdf_element['is_good'] = false;
+			pdf_element['is_not_posted'] = false;
+			pdf_element['is_not_panel'] = true;
+			pdf_element['is_wrong_panel_side'] = true;
+
+			// 	'end date':moment.utc(parseInt(res[i]['endDate'])).format("DD-MM-YYYY HH:mm A"),
+			
+			// var csv_element = {
+			// 	'Suburb': res[i].suburb,
+			// 	'State':res[i].siteId,
+			// 	'compaign name':res[i].campaign,
+			// 	'Advertiser':res[i].client,
+			// 	'Agency primary':res[i].contractor,
+
+			// 	'app job id':res[i].jobID,
+			// 	'job accepted by':res[i].name,
+			// 	'App job Geo Code latitude':res[i].applat,
+			// 	'App job Geo Code longitude':res[i].applong,
+			// 	'App Job Suburb':res[i].appsubrub,
+			// 	'App Job Address':res[i].appaddress,
+			// 	'App Job Post Code':res[i].zipCode,
+			// 	'App job Inspection Type':res[i].jobtype,
+			// 	'App job Condition GOOD':true,
+			// 	'App job Condition NOT POSTED':false,
+			// 	'App job Condition NO PANEL ':true,
+			// 	'App job Condition WRONG PANEL SIDE ':false,
+			// 	'App job Condition PROXIMITY':res[i].proximityCheck,
+			// 	'App job Condition SHARE OF VOICE':res[i].shareofVoiceCheck,
+			// 	'App job NOTES':res[i].appnotes,
+			// 	'Image url':res[i].imageurl
+			// }
 			if(is_checked_all || is_selected ==false){
-				csv_data.push(csv_element)
+				pdf_data.push(pdf_element)
 			}else{
 				var selected_checkboxes = $(".job-element[data-jobid='"+res[i].jobID+"']").find("input[type='checkbox']").is(":checked")
 				if(selected_checkboxes == true){
-					csv_data.push(csv_element)
+					pdf_data.push(pdf_element)
 				}
 
 			}
 		}
+		var doc = new jsPDF('p','pt','a1');
+		doc.autoTable(columns,pdf_data,{})
+		doc.setFontSize(2);
+		doc.save("jobs-confirmed-report.pdf")
 		// console.log(csv_data)
-		JSONToCSVConvertor(csv_data, "", true)
+		// JSONToCSVConvertor(csv_data, "", true)
 
 
 	})
